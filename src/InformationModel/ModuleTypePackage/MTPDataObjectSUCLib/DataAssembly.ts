@@ -1,6 +1,4 @@
 /** MTPFreeze 01.2020 */
-import DiagnosticElement = ModuleTypePackage.DiagnosticElement;
-import LockView4 = ModuleTypePackage.LockView4;
 
 namespace ModuleTypePackage {
     /* DataAssembly */
@@ -14,7 +12,7 @@ namespace ModuleTypePackage {
         Out: object;
         OutQC: object;
     }
-    export type LockView4 = DiagnosticElement & {
+    type LockView4 = DiagnosticElement & {
         ln1: object;
         ln1En: object;
         ln1Inv: object;
@@ -35,6 +33,28 @@ namespace ModuleTypePackage {
         ln4Inv: object;
         ln4QC: object;
         ln4Txt: object;
+    }
+    type LockView8 = LockView4 & {
+        ln5: object;
+        ln5En: object;
+        ln5Inv: object;
+        ln5QC: object;
+        ln5Txt: object;
+        ln6: object;
+        ln6En: object;
+        ln6Inv: object;
+        ln6QC: object;
+        ln6Txt: object;
+        ln7: object;
+        ln7En: object;
+        ln7Inv: object;
+        ln7QC: object;
+        ln7Txt: object;
+        ln8: object;
+        ln8En: object;
+        ln8Inv: object;
+        ln8QC: object;
+        ln8Txt: object;
     }
     /* ??? */
     type WQC = {
