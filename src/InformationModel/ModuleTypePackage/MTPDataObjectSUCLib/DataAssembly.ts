@@ -12,7 +12,7 @@ namespace ModuleTypePackage {
         Out: object;
         OutQC: object;
     }
-    type LockView4 = DiagnosticElement & {
+    export type LockView4 = DiagnosticElement & {
         In1: object;
         In1En: object;
         In1Inv: object;
@@ -34,7 +34,7 @@ namespace ModuleTypePackage {
         In4QC: object;
         In4Txt: object;
     }
-    type LockView8 = LockView4 & {
+    export type LockView8 = LockView4 & {
         In5: object;
         In5En: object;
         In5Inv: object;
@@ -56,7 +56,7 @@ namespace ModuleTypePackage {
         In8QC: object;
         In8Txt: object;
     }
-    type LockView16 = LockView8 & {
+    export type LockView16 = LockView8 & {
         In9: object;
         In9En: object;
         In9Inv: object;
