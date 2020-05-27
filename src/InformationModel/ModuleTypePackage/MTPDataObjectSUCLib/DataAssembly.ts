@@ -98,8 +98,55 @@ namespace ModuleTypePackage {
         In16QC: object;
         In16Txt: object;
     }
+    /* ServiceControl */
+    export type ServiceControl = DataAssembly & OSLevel & SrcChannel & SrcExt & SrcInt & StateAut & StateOff & StateOp &{
+        CommandEn: object;
+        CommandExt: object;
+        CommandInt: object;
+        CommandOp: object;
+        InteractAnswerID: object;
+        InteractQuestionID: object;
+        PostTextId: object;
+        ProcedureCur: object;
+        ProcedureExt: object;
+        ProcedureInt: object;
+        ProcedureOp: object;
+        ProcedureReq: object;
+        StateCur: object;
+    }
     /* ??? */
+    type SrcChannel = {
+        SrcChannel: object;
+    }
+    type SrcExt = {
+        SrcExtAct: object;
+        SrcExtAut: object;
+        SrcExtOp: object;
+    }
+    type SrcInt = {
+        SrcIntAct: object;
+        SrcIntAut: object;
+        SrcIntOp: object;
+    }
+    type StateAut = {
+        StateAutAct: object;
+        StateAutAut: object;
+        StateAutOp: object
+    }
+    type StateOff = {
+        StateOffAct: object;
+        StateOffAut: object;
+        StateOffOp: object;
+    }
+    type StateOp = {
+        StateOpAct: object;
+        StateOpAut: object;
+        StateOpOp: object;
+    }
     type WQC = {
         WQC: object;
+    }
+    type OSLevel = {
+        OSLevel: object;
     }
 }
