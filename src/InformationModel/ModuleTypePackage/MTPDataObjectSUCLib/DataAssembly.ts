@@ -6,12 +6,17 @@ namespace ModuleTypePackage {
         TagName: String;
         TagDescription: String;
     }
+    /* ActiveElement */
+    export type ActiveElement = DataAssembly & OSLevel & WQC;
+    export type PIDCtrl = ActiveElement & MV & PV & SP &{
+        P: object;
+    };
     /* DiagnosticElement */
     export type DiagnosticElement = DataAssembly & WQC & {
         Logic: object;
         Out: object;
         OutQC: object;
-    }
+    };
     export type LockView4 = DiagnosticElement & {
         In1: object;
         In1En: object;
@@ -33,7 +38,7 @@ namespace ModuleTypePackage {
         In4Inv: object;
         In4QC: object;
         In4Txt: object;
-    }
+    };
     export type LockView8 = LockView4 & {
         In5: object;
         In5En: object;
@@ -55,7 +60,7 @@ namespace ModuleTypePackage {
         In8Inv: object;
         In8QC: object;
         In8Txt: object;
-    }
+    };
     export type LockView16 = LockView8 & {
         In9: object;
         In9En: object;
@@ -97,9 +102,9 @@ namespace ModuleTypePackage {
         In16Inv: object;
         In16QC: object;
         In16Txt: object;
-    }
+    };
     /* ServiceControl */
-    export type ServiceControl = DataAssembly & OSLevel & SrcChannel & SrcExt & SrcInt & StateAut & StateOff & StateOp &{
+    export type ServiceControl = DataAssembly & OSLevel & SrcChannel & SrcExt & SrcInt & StateAut & StateOff & StateOp & WQC & {
         CommandEn: object;
         CommandExt: object;
         CommandInt: object;
@@ -113,40 +118,73 @@ namespace ModuleTypePackage {
         ProcedureOp: object;
         ProcedureReq: object;
         StateCur: object;
-    }
+    };
     /* ??? */
+    type MV = {
+        MV: object;
+        MVMan: object;
+        MVMax: object;
+        MVMin: object;
+        MVSclMax: object;
+        MVSclMin: object;
+        MVUnit: object;
+    };
+    type OSLevel = {
+        OSLevel: object;
+    };
+    type PV = {
+        PV: object;
+        PVSclMax: object;
+        PVSclMin: object;
+        PVUnit: object;
+    }
+    type SP = SPScl & SPInt & SPMan & {
+        SP: object;
+        SPUnit: object;
+    }
+    type SPScl = {
+        SPSclMax: object;
+        SPSclMin: object;
+    }
+    type SPInt = {
+        SPInt: object;
+        SPIntMax: object;
+        SPIntMin: object;
+    }
+    type SPMan = {
+        SPMan: object;
+        SPManMax: object;
+        SPManMin: object;
+    }
     type SrcChannel = {
         SrcChannel: object;
-    }
+    };
     type SrcExt = {
         SrcExtAct: object;
         SrcExtAut: object;
         SrcExtOp: object;
-    }
+    };
     type SrcInt = {
         SrcIntAct: object;
         SrcIntAut: object;
         SrcIntOp: object;
-    }
+    };
     type StateAut = {
         StateAutAct: object;
         StateAutAut: object;
         StateAutOp: object
-    }
+    };
     type StateOff = {
         StateOffAct: object;
         StateOffAut: object;
         StateOffOp: object;
-    }
+    };
     type StateOp = {
         StateOpAct: object;
         StateOpAut: object;
         StateOpOp: object;
-    }
+    };
     type WQC = {
         WQC: object;
-    }
-    type OSLevel = {
-        OSLevel: object;
-    }
+    };
 }
