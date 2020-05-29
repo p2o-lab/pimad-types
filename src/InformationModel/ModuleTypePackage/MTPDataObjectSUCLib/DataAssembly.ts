@@ -21,6 +21,7 @@ namespace ModuleTypePackage {
     export type BinVlv = ActiveElementDrvAndVlv & Close & Open & SafePosEn & State & {
         Ctrl: object;
     };
+    export type MonBinVlv = BinVlv & Mon;
     export type PIDCtrl = ActiveElement & MV & PV & SP & SrcChannel & SrcInt & SrcMan & State & {
         P: object;
         Td: object;
@@ -140,6 +141,14 @@ namespace ModuleTypePackage {
       CloseFbk: object;
       CloseFbkCalc: object;
       CloseOp: object;
+    };
+    type Mon = {
+        MonEn: object;
+        MonSafePos: object;
+        MonDynErr: object;
+        MonDynTi: object;
+        MonStatErr: object;
+        MonStatTi: object;
     };
     type MV = {
         MV: object;
