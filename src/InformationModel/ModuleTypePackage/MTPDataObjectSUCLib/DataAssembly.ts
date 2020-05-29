@@ -8,8 +8,10 @@ namespace ModuleTypePackage {
     }
     /* ActiveElement */
     export type ActiveElement = DataAssembly & OSLevel & WQC;
-    export type PIDCtrl = ActiveElement & MV & PV & SP &{
+    export type PIDCtrl = ActiveElement & MV & PV & SP & SrcChannel & SrcInt & SrcMan & State & {
         P: object;
+        Td: object;
+        Ti: object;
     };
     /* DiagnosticElement */
     export type DiagnosticElement = DataAssembly & WQC & {
@@ -168,6 +170,15 @@ namespace ModuleTypePackage {
         SrcIntAct: object;
         SrcIntAut: object;
         SrcIntOp: object;
+    };
+    type SrcMan = {
+        SrcManAct: object;
+        SrcManAut: object;
+        SrcManOp: object;
+    }
+    type State = StateAut & StateOff & StateOp & {
+        StateChannel: object;
+        StateCur: object;
     };
     type StateAut = {
         StateAutAct: object;
