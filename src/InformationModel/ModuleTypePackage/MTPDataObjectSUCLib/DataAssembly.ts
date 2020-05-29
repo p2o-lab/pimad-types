@@ -8,6 +8,19 @@ namespace ModuleTypePackage {
     }
     /* ActiveElement */
     export type ActiveElement = DataAssembly & OSLevel & WQC;
+    type ActiveElementDrvAndVlv = ActiveElement & SafePos & {
+        Interlock: object;
+        IntlEn: object;
+        PermEn: object;
+        Permit: object;
+        Protect: object;
+        ProtEn: object;
+        ResetAut: object;
+        ResetOp: object;
+    };
+    export type BinVlv = ActiveElementDrvAndVlv & Close & Open & SafePosEn & State & {
+        Ctrl: object;
+    };
     export type PIDCtrl = ActiveElement & MV & PV & SP & SrcChannel & SrcInt & SrcMan & State & {
         P: object;
         Td: object;
@@ -106,7 +119,7 @@ namespace ModuleTypePackage {
         In16Txt: object;
     };
     /* ServiceControl */
-    export type ServiceControl = DataAssembly & OSLevel & SrcChannel & SrcExt & SrcInt & StateAut & StateOff & StateOp & WQC & {
+    export type ServiceControl = DataAssembly & OSLevel & SrcChannel & SrcExt & SrcInt & State & WQC & {
         CommandEn: object;
         CommandExt: object;
         CommandInt: object;
@@ -122,6 +135,12 @@ namespace ModuleTypePackage {
         StateCur: object;
     };
     /* ??? */
+    type Close = {
+      CloseAut: object;
+      CloseFbk: object;
+      CloseFbkCalc: object;
+      CloseOp: object;
+    };
     type MV = {
         MV: object;
         MVMan: object;
@@ -131,6 +150,12 @@ namespace ModuleTypePackage {
         MVSclMin: object;
         MVUnit: object;
     };
+    type Open = {
+        OpenAut: object;
+        OpenFbk: object;
+        OpenFbkCalc: object;
+        OpenOp: object;
+    }
     type OSLevel = {
         OSLevel: object;
     };
@@ -139,7 +164,16 @@ namespace ModuleTypePackage {
         PVSclMax: object;
         PVSclMin: object;
         PVUnit: object;
-    }
+    };
+    type SafePos = {
+        SafePos: object;
+    };
+    type SafePosEn = SafePos & {
+        SafePosEn: object;
+    };
+    type SafePosAct = SafePosEn & {
+        SafePosAct: object;
+    };
     type SP = SPScl & SPInt & SPMan & {
         SP: object;
         SPUnit: object;
@@ -178,7 +212,6 @@ namespace ModuleTypePackage {
     }
     type State = StateAut & StateOff & StateOp & {
         StateChannel: object;
-        StateCur: object;
     };
     type StateAut = {
         StateAutAct: object;
