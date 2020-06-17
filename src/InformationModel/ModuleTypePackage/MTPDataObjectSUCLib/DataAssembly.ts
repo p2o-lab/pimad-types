@@ -31,7 +31,8 @@ namespace MTP202001 {
         MonPosTi: object;
         PosReachedFbk: object;
         PosTolerance: object;
-    }
+    };
+    export type BinDrv = ActiveElementDrvAndVlv & Fwd & Rev & Stop & Trip;
     export type PIDCtrl = ActiveElement & MV & PV & SP & SrcChannelAndIntAndMan & State & {
         P: object;
         Td: object;
@@ -152,6 +153,14 @@ namespace MTP202001 {
       CloseFbkCalc: object;
       CloseOp: object;
     };
+    type Fwd = {
+        FwdAut: object;
+        FwdCtrl: object;
+        FwdEn: object;
+        FwdFbk: object;
+        FwdFbkCtrl: object;
+        FwdOp: object;
+    }
     type Mon = {
         MonEn: object;
         MonSafePos: object;
@@ -197,6 +206,14 @@ namespace MTP202001 {
         PVSclMin: object;
         PVUnit: object;
     };
+    type Rev = {
+        RevAut: object;
+        RevCtrl: object;
+        RevEn: object;
+        RevFbk: object;
+        RevFbkCtrl: object;
+        RevOp: object;
+    }
     type SafePos = {
         SafePos: object;
     };
@@ -260,6 +277,13 @@ namespace MTP202001 {
         StateOpAct: object;
         StateOpAut: object;
         StateOpOp: object;
+    };
+    type Stop = {
+        StopAut: object;
+        StopOp: object;
+    };
+    type Trip = {
+        Trip: object;
     };
     type WQC = {
         WQC: object;
