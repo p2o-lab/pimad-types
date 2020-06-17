@@ -133,6 +133,17 @@ namespace MTP202001 {
         In16QC: object;
         In16Txt: object;
     };
+    /* IndicatorElement */
+    export type IndicatorElement = DataAssembly & WQC;
+    export type AnaView = IndicatorElement & V & VScl & VUnit;
+    export type AnaMon = AnaView & OSLevel & VAH & VAL & VTH & VTL & VWH & VWL;
+    export type BinView = IndicatorElement & V & VState;
+    export type BinMon = BinView & OSLevel & VFlut;
+    export type DIntView = AnaView;
+    export type DintMon = AnaMon;
+    export type StringView = IndicatorElement & {
+        Text: string;
+    }
     /* ServiceControl */
     export type ServiceControl = DataAssembly & OSLevel & SrcChannel & SrcExt & SrcInt & State & WQC & {
         CommandEn: object;
@@ -163,7 +174,7 @@ namespace MTP202001 {
         FwdFbk: object;
         FwdFbkCtrl: object;
         FwdOp: object;
-    }
+    };
     type Mon = {
         MonEn: object;
         MonSafePos: object;
@@ -255,21 +266,21 @@ namespace MTP202001 {
     type SP = SPScl & SPInt & SPMan & {
         SP: object;
         SPUnit: object;
-    }
+    };
     type SPScl = {
         SPSclMax: object;
         SPSclMin: object;
-    }
+    };
     type SPInt = {
         SPInt: object;
         SPIntMax: object;
         SPIntMin: object;
-    }
+    };
     type SPMan = {
         SPMan: object;
         SPManMax: object;
         SPManMin: object;
-    }
+    };
     type SrcChannel = {
         SrcChannel: object;
     };
@@ -287,7 +298,7 @@ namespace MTP202001 {
         SrcManAct: object;
         SrcManAut: object;
         SrcManOp: object;
-    }
+    };
     type SrcChannelAndIntAndMan = SrcChannel & SrcInt & SrcMan;
     type State = StateAut & StateOff & StateOp & {
         StateChannel: object;
@@ -313,6 +324,56 @@ namespace MTP202001 {
     };
     type Trip = {
         Trip: object;
+    };
+    type V = {
+        V: object;
+    };
+    type VScl = {
+        VSclMax: object;
+        VSclMin: object;
+    };
+    type VUnit = {
+        VUnit: object;
+    };
+    type VAH = {
+        VAHEn: object;
+        VAHLim: object;
+        VAHAct: object;
+    };
+    type VAL = {
+        VALEn: object;
+        VALLim: object;
+        VALAct: object;
+    };
+    type VFlut = {
+        VFlutEn: object;
+        VFlutTi: object;
+        VFlutECnt: object;
+        VFlutAct: object;
+    };
+    type VState = {
+        VState0: object;
+        VState1: object;
+    };
+    type VTH = {
+        VTHEn: object;
+        VTHLim: object;
+        VTHAct: object;
+    };
+    type VTL = {
+        VTLEn: object;
+        VTLLim: object;
+        VTLAct: object;
+    };
+    type VWH = {
+        VWHEn: object;
+        VWHLim: object;
+        VWHAct: object;
+    };
+    type VWL = {
+        VWLEn: object;
+        VWLLim: object;
+        VWLAct: object;
     };
     type WQC = {
         WQC: object;
