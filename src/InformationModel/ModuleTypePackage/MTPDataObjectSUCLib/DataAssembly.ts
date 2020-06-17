@@ -22,7 +22,17 @@ namespace ModuleTypePackage {
         Ctrl: object;
     };
     export type MonBinVlv = BinVlv & Mon;
-    export type PIDCtrl = ActiveElement & MV & PV & SP & SrcChannel & SrcInt & SrcMan & State & {
+    export type AnaVlv = ActiveElementDrvAndVlv & Close & Open & Pos & SafePosAct & SrcChannelAndIntAndMan & State & {
+        CloseAct: object;
+        OpenAct: object;
+    };
+    export type MonAnaVlv = AnaVlv & Mon & {
+        MonPosErr: object;
+        MonPosTi: object;
+        PosReachedFbk: object;
+        PosTolerance: object;
+    }
+    export type PIDCtrl = ActiveElement & MV & PV & SP & SrcChannelAndIntAndMan & State & {
         P: object;
         Td: object;
         Ti: object;
@@ -168,6 +178,19 @@ namespace ModuleTypePackage {
     type OSLevel = {
         OSLevel: object;
     };
+    type Pos = {
+        Pos: object;
+        PosFbk: object;
+        PosFbkCalc: object;
+        PosInt: object;
+        PosMan: object;
+        PosMax: object;
+        PosMin: object;
+        PosRbk: object;
+        PosSclMax: object;
+        PosSclMin: object;
+        PosUnit: object;
+    }
     type PV = {
         PV: object;
         PVSclMax: object;
@@ -219,6 +242,7 @@ namespace ModuleTypePackage {
         SrcManAut: object;
         SrcManOp: object;
     }
+    type SrcChannelAndIntAndMan = SrcChannel & SrcInt & SrcMan;
     type State = StateAut & StateOff & StateOp & {
         StateChannel: object;
     };
