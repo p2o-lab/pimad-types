@@ -1,6 +1,6 @@
 /** MTPFreeze 01.2020 */
 
-namespace ModuleTypePackage {
+namespace MTP202001 {
     /* DataAssembly */
     export interface DataAssembly {
         TagName: String;

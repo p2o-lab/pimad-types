@@ -1,4 +1,4 @@
-namespace ModuleTypePackage {
+namespace MTP202001 {
     // TODO: How to use the power of generics?
     export interface DataItem {
         Access: Access; // Blatt 1 - Seite 22
