@@ -143,7 +143,13 @@ namespace MTP202001 {
     export type DintMon = AnaMon;
     export type StringView = IndicatorElement & {
         Text: string;
-    }
+    };
+    /* InputElement */
+    export type InputElement = DataAssembly & WQC;
+    export type AIntProcessValueIn = AnaProcessValueIn;
+    export type AnaProcessValueIn = InputElement & VExt & VScl;
+    export type BinProcessValueIn = InputElement & VExt & VState;
+
     /* ServiceControl */
     export type ServiceControl = DataAssembly & OSLevel & SrcChannel & SrcExt & SrcInt & State & WQC & {
         CommandEn: object;
@@ -344,6 +350,9 @@ namespace MTP202001 {
         VALEn: object;
         VALLim: object;
         VALAct: object;
+    };
+    type VExt = {
+        VExt: object;
     };
     type VFlut = {
         VFlutEn: object;
