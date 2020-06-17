@@ -149,7 +149,18 @@ namespace MTP202001 {
     export type AIntProcessValueIn = AnaProcessValueIn;
     export type AnaProcessValueIn = InputElement & VExt & VScl;
     export type BinProcessValueIn = InputElement & VExt & VState;
-
+    /* OperationElement */
+    export type OperationElement = DataAssembly & OSLevel;
+    export type AnaMan = OperationElement & VFbkAndOut & VMan & VMaxAndMin & VRbk & VScl & VUnit;
+    export type AnaManInt = AnaMan & SrcChannelAndIntAndMan & VInt;
+    export type AnaServParam = OperationElement & SrcChannelAndExtAndInt & State & VSync & VExt & VFbkAndOut & VInt & VMaxAndMin & VOp & VReq & VScl & VUnit;
+    export type BinMan = OperationElement & VFbkAndOut & VMan & VState & VRbk;
+    export type BinManInt = BinMan & SrcChannelAndIntAndMan & VInt;
+    export type BinServParam = OperationElement & SrcChannelAndExtAndInt & State & VSync & VExt & VFbkAndOut & VInt & VOp & VReq & VState;
+    export type DIntMan = AnaMan;
+    export type DIntServParam = AnaServParam;
+    export type DIntManInt = AnaManInt;
+    export type StringServParam = OperationElement & SrcChannelAndExtAndInt & State & VSync & VExt & VFbkAndOut & VInt & VOp & VReq;
     /* ServiceControl */
     export type ServiceControl = DataAssembly & OSLevel & SrcChannel & SrcExt & SrcInt & State & WQC & {
         CommandEn: object;
@@ -305,6 +316,7 @@ namespace MTP202001 {
         SrcManAut: object;
         SrcManOp: object;
     };
+    type SrcChannelAndExtAndInt = SrcChannel & SrcExt & SrcInt;
     type SrcChannelAndIntAndMan = SrcChannel & SrcInt & SrcMan;
     type State = StateAut & StateOff & StateOp & {
         StateChannel: object;
@@ -334,9 +346,26 @@ namespace MTP202001 {
     type V = {
         V: object;
     };
+    type VFbkAndOut = {
+        VFbk: object;
+        VOut: object;
+    };
+    type VMan = {
+        VMan: object;
+    };
+    type VMaxAndMin = {
+        VMax: object;
+        VMin: object;
+    };
+    type VRbk = {
+        VRbk: object;
+    };
     type VScl = {
         VSclMax: object;
         VSclMin: object;
+    };
+    type VSync = {
+        VSync: object;
     };
     type VUnit = {
         VUnit: object;
@@ -359,6 +388,15 @@ namespace MTP202001 {
         VFlutTi: object;
         VFlutECnt: object;
         VFlutAct: object;
+    };
+    type VInt = {
+        VInt: object;
+    };
+    type VOp = {
+        VOp: object;
+    };
+    type VReq = {
+        VReq: object;
     };
     type VState = {
         VState0: object;
