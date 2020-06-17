@@ -18,21 +18,24 @@ namespace MTP202001 {
         ResetAut: object;
         ResetOp: object;
     };
-    export type BinVlv = ActiveElementDrvAndVlv & Close & Open & SafePosEn & State & {
-        Ctrl: object;
-    };
-    export type MonBinVlv = BinVlv & Mon;
+    export type AnaDrv = ActiveElementDrvAndVlv & Fwd & Rev & Rpm & SrcChannelAndIntAndMan & State & Stop & Trip;
     export type AnaVlv = ActiveElementDrvAndVlv & Close & Open & Pos & SafePosAct & SrcChannelAndIntAndMan & State & {
         CloseAct: object;
         OpenAct: object;
     };
+    export type BinDrv = ActiveElementDrvAndVlv & Fwd & Rev & Stop & Trip;
+    export type BinVlv = ActiveElementDrvAndVlv & Close & Open & SafePosEn & State & {
+        Ctrl: object;
+    };
+    export type MonAnaDrv = AnaDrv & RpmAH & RpmAL & RpmErr;
     export type MonAnaVlv = AnaVlv & Mon & {
         MonPosErr: object;
         MonPosTi: object;
         PosReachedFbk: object;
         PosTolerance: object;
     };
-    export type BinDrv = ActiveElementDrvAndVlv & Fwd & Rev & Stop & Trip;
+    export type MonBinVlv = BinVlv & Mon;
+    export type MonBinDrv = BinDrv & Mon;
     export type PIDCtrl = ActiveElement & MV & PV & SP & SrcChannelAndIntAndMan & State & {
         P: object;
         Td: object;
@@ -213,7 +216,33 @@ namespace MTP202001 {
         RevFbk: object;
         RevFbkCtrl: object;
         RevOp: object;
-    }
+    };
+    type Rpm = {
+        Rpm: object;
+        RpmFbk: object;
+        RpmFbkCalc: object;
+        RpmInt: object;
+        RpmMan: object;
+        RpmMax: object;
+        RpmMin: object;
+        RpmRbk: object;
+        RpmSclMax: object;
+        RpmSclMin: object;
+        RpmUnit: object;
+    };
+    type RpmAH = {
+        RpmAHAct: object;
+        RpmAHEn: object;
+        RpmAHLim: object;
+    };
+    type RpmAL = {
+        RpmALAct: object;
+        RpmALEn: object;
+        RpmALLim: object;
+    };
+    type RpmErr = {
+        RpmErr: object;
+    };
     type SafePos = {
         SafePos: object;
     };
