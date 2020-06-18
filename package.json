@@ -1,6 +1,6 @@
 {
   "name": "PiMAd-types",
-  "version": "0.0.2",
+  "version": "0.0.3-BE.0",
   "description": "This Package contains type definitions for PiMAd-core.",
   "main": "src/index.ts",
   "scripts": {
@@ -18,7 +18,12 @@
     "type": "git",
     "url": "svn@dev.plt.et.tu-dresden.de:modulare-automation/PiMAd-types.git"
   },
-  "keywords": ["MTP", "Module Type Package", "Parser", "PiMAd"],
+  "keywords": [
+    "MTP",
+    "Module Type Package",
+    "Parser",
+    "PiMAd"
+  ],
   "author": "Christoph Jesaja Heidelbach <christoph_jesaja.heidelbach@tu-dresden.de>",
   "license": "ISC",
   "devDependencies": {
