@@ -17,5 +17,6 @@ npm publish
 ```
 Publish with specific tag:
 ```shell script
+npm version prerelease --preid=<tag>
 npm publish --tag <tag>
 ```
