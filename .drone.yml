@@ -5,11 +5,11 @@ clone:
 
 pipeline:
   lint:
-    image: node:8-jessie
+    image: node:12
     commands:
       - npm install
       - npm run build
   build:
-    image: node:8-jessie
+    image: node:12
     commands:
       - npm run build
