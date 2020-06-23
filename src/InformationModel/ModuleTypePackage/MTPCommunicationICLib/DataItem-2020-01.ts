@@ -1,16 +1,17 @@
 /** MTPFreeze 01.2020 */
 
-// TODO: How to use the power of generics?
-export interface DataItem {
-    Access: Access; // Blatt 1 - Seite 22
+export interface DataItem<A,T> {
+    defaultValue: T;
+    access: A; // Blatt 1 - Seite 22
+}
+// TODO: How to use extends with generic?
+export interface OPCUAItem extends DataItem<Access, any> {
+    Identifier: string;
+    Namespace: string;
 }
 
-export interface OPCUAItem extends DataItem {
-    Identifier: String;
-    Namespace: String;
-}
-
-enum Access {
-    Read,
-    ReadWrite
+export enum Access {
+    ReadAccess,
+    ReadWriteAccess,
+    MTP
 }
