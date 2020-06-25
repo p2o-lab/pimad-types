@@ -1,12 +1,14 @@
+import {InstanceHierarchy} from '../../InformationModel/AutomationML/AML-2.15';
+
 export type CAEXFile = {
-    FileName: object;
-    SchemaVersion: object;
-    'xmlns:xsi': object;
-    'xsi:noNamespaceSchemaLocation': object;
+    FileName: string;
+    SchemaVersion: string;
+    'xmlns:xsi': string;
+    'xsi:noNamespaceSchemaLocation': string;
     AdditionalInformation: object[];
     ExternalReference: object[];
-    InstanceHierarchy: object[];
+    InstanceHierarchy: InstanceHierarchy[];
     InterfaceClassLib: object[];
-    RoleClassLib: object[];
+    RoleClassLib: object;
     SystemUnitClassLib: object[];
 };
