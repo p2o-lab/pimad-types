@@ -1,7 +1,7 @@
 type BaseAML = {
-    Name: String;
-    ID: String;
-    Version: String;
+    Name: string;
+    ID: string;
+    Version: string;
 }
 
 export type InstanceHierarchy = BaseAML & {

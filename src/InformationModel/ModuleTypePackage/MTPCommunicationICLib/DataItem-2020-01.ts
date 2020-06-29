@@ -6,8 +6,9 @@ export interface DataItem<A,T> {
 }
 // TODO: How to use extends with generic?
 export interface OPCUAItem extends DataItem<Access, any> {
-    Identifier: string;
-    Namespace: string;
+    nodeId: string;
+    namespaceUrl: string;
+    nodeIdType: NodeIdTypeEnum;
 }
 
 export enum Access {
@@ -15,3 +16,9 @@ export enum Access {
     ReadWriteAccess,
     MTP
 }
+export enum NodeIdTypeEnum {
+    STRING = 's',
+    NUMERIC = 'n',
+    GUID = 'g',
+    OPAQUE = 'o'
+};

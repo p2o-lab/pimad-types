@@ -1,8 +1,9 @@
 /** MTPFreeze 01.2020 */
 import {DataItem, Access} from '../MTPCommunicationICLib/DataItem-2020-01';
+import {LinkedObject} from '../MTPSUCLib/MTPSet-2020-01';
 
 /* DataAssembly */
-export interface DataAssembly {
+export interface DataAssembly extends LinkedObject{
     TagName: DataItem<Access.MTP, string>;
     TagDescription: DataItem<Access.MTP, string>;
 };
