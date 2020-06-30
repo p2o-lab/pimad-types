@@ -1,4 +1,5 @@
-import {InstanceHierarchy} from '../..';
+import {InstanceHierarchy} from 'AML';
+
 
 export type CAEXFile = {
     FileName: string;
