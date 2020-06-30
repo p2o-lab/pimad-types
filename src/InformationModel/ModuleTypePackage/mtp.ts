@@ -1,2 +1,5 @@
 export * from './MTPCommunicationICLib/DataItem-2020-01'
+export * from './MTPCommunicationSUCLib/ServerAssembly-2020-01'
 export * from './MTPDataObjectSUCLib/DataAssembly-2020-01'
+export * from './MTPSUCLib/MTPSet-2020-01'
+export * from './MTPTextSUCLib/TextSet-2020-01'
