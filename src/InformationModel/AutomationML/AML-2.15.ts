@@ -1,4 +1,4 @@
-namespace AML {
+declare module 'AML'{
     type BaseAML = {
         Name: string;
         ID: string;
