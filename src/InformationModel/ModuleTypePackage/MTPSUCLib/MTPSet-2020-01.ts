@@ -1,26 +1,31 @@
 /** MTPFreeze 01.2020 */
 import {DataAssembly} from '../MTPDataObjectSUCLib/DataAssembly-2020-01';
 import {ServerAssembly} from '../MTPCommunicationSUCLib/ServerAssembly-2020-01';
+import {ServiceSet} from '../MTPServiceSUCLib/ServiceSet-2020-01';
 
-/* MTPSet */
-export interface MTPSet {
-    CommunicationSet: CommunicationSet; //TODO: check if MTP set definition is correct
+export type ModuleTypePackage = {
+    CommunicationSet: CommunicationSet;
+    ServiceSet: ServiceSet;
 };
 
-export interface CommunicationSet {
+/* MTPSet */
+export type MTPSet = {};
+
+/* CommunicationSet */
+export type CommunicationSet = MTPSet &{
     InstanceList: InstanceList;
     SourceList: SourceList;
 };
 
-export interface InstanceList {
+export type InstanceList = {
     DataAssembly: DataAssembly[];
 };
 
-export interface SourceList {
+export type SourceList = {
     ServerAssembly: ServerAssembly[];
 };
 
 /* LinkedObject */
-export interface LinkedObject {
-    RefID: string; //TODO: check that
+export type LinkedObject = {
+    RefID: string;
 };
