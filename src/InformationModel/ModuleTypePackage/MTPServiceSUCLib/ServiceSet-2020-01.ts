@@ -1,7 +1,8 @@
-/* ServiceSet */
+/** MTPFreeze 01.2020 */
 import {LinkedObject} from '../MTPSUCLib/MTPSet-2020-01';
 import {Access, DataItem} from '../../..';
 
+/* ServiceSet */
 export type ServiceSet = {
     Service: Service[];
     ServiceRelation: ServiceRelation[];
