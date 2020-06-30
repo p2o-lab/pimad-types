@@ -3,9 +3,9 @@ import {DataItem, Access} from '../MTPCommunicationICLib/DataItem-2020-01';
 import {LinkedObject} from '../MTPSUCLib/MTPSet-2020-01';
 
 /* DataAssembly */
-export interface DataAssembly extends LinkedObject{
-    TagName: DataItem<Access.MTP, string>;
-    TagDescription: DataItem<Access.MTP, string>;
+export type DataAssembly = LinkedObject & {
+    TagName: DataItem<Access.ReadAccess, string>;
+    TagDescription: DataItem<Access.ReadAccess, string>;
 };
 
 /* ActiveElement */
