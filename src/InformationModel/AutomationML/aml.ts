@@ -1,1 +1,1 @@
-export * from './AML-2.15';
+export * as AML from  './AML-2.15';
