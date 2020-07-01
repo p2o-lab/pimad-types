@@ -1,5 +1,5 @@
 /** MTPFreeze 01.2020 */
-import {DataItem} from '../MTPCommunicationICLib/DataItem-2020-01';
+import {DataItem} from '../../..';
 
 /* ServerAssembly */
 export type ServerAssembly = {

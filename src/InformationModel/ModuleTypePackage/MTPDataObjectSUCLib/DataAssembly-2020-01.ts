@@ -1,6 +1,5 @@
 /** MTPFreeze 01.2020 */
-import {DataItem, Access} from '../MTPCommunicationICLib/DataItem-2020-01';
-import {LinkedObject} from '../MTPSUCLib/MTPSet-2020-01';
+import {LinkedObject, DataItem, Access} from '../../..';
 
 /* DataAssembly */
 export type DataAssembly = LinkedObject & {
