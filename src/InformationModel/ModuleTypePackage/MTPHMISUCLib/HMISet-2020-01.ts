@@ -1,6 +1,5 @@
 /** MTPFreeze 01.2020 */
-import {Access, DataItem, LinkedObject} from '../../..';
-import {InformationFlowConnector, MassFlowConnector} from '../../..';
+import {LinkedObject, Access, DataItem, InformationFlowConnector, MassFlowConnector} from '../../..';
 
 export type HMISet = {
     Picture: Picture;
