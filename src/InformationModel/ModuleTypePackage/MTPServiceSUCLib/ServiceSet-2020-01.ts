@@ -1,6 +1,5 @@
 /** MTPFreeze 01.2020 */
-import {LinkedObject} from '../MTPSUCLib/MTPSet-2020-01';
-import {Access, DataItem} from '../../..';
+import {LinkedObject, Access, DataItem} from '../../..';
 
 /* ServiceSet */
 export type ServiceSet = {
