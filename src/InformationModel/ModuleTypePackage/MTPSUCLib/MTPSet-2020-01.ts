@@ -1,8 +1,9 @@
 /** MTPFreeze 01.2020 */
 import {DataAssembly, ServerAssembly, ServiceSet, TextSet, HMISet} from '../../..';
+import {Base, DataItemInstanceList, DataItemSourceList} from 'AML';
 
 export type ModuleTypePackage = {
-    CommunicationSet: CommunicationSet;
+    CommunicationSet: Array <InstanceList | SourceList>;
     ServiceSet: ServiceSet;
     TextSet: TextSet;
     HMISet: HMISet;
@@ -12,17 +13,16 @@ export type ModuleTypePackage = {
 export type MTPSet = {};
 
 /* CommunicationSet */
-export type CommunicationSet = MTPSet &{
-    InstanceList: InstanceList;
-    SourceList: SourceList;
+type CommunicationSet = MTPSet & Base & {
+    RefBaseSystemUnitClass: string;
 };
 
-export type InstanceList = {
-    DataAssembly: DataAssembly[];
+export type InstanceList = CommunicationSet & {
+    InternalElement: DataItemInstanceList[];
 };
 
 export type SourceList = {
-    ServerAssembly: ServerAssembly[];
+    InternalElement: DataItemSourceList;
 };
 
 /* LinkedObject */
