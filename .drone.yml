@@ -8,7 +8,7 @@ pipeline:
     image: node:12
     commands:
       - npm install
-      - npm run build
+      - npm run lint
   build:
     image: node:12
     commands:
