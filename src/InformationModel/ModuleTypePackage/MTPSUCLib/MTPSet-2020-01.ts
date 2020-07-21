@@ -28,7 +28,7 @@ export type InstanceList = CommunicationSet & {
  * MTPSUCLib/CommunicationSet/SourceList
  */
 export type SourceList = CommunicationSet & {
-    InternalElement: DataItemSourceList;
+    InternalElement: DataItemSourceList[];
 };
 
 /* LinkedObject */
