@@ -28,7 +28,12 @@ declare module 'AML'{
     export type DataItemSourceList = Base & {
         RefBaseSystemUnitPath: string;
         Attribute: Attribute;
-        ExternalInterface: DataItemInstanceList;
+        ExternalInterface: DataItemSourceListExternalInterface;
+    }
+
+    export type DataItemSourceListExternalInterface = Base & {
+        RefBaseClassPath: string;
+        Attribute: Attribute[];
     }
 
     export type DataItemInstanceList = Base & {
