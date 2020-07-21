@@ -12,16 +12,22 @@ export type ModuleTypePackage = {
 /* MTPSet */
 export type MTPSet = {};
 
-/* CommunicationSet */
+/**
+ * MTPSUCLib/CommunicationSet
+ */
 type CommunicationSet = MTPSet & Base & {
     RefBaseSystemUnitClass: string;
 };
-
+/**
+ * MTPSUCLib/CommunicationSet/InstanceList
+ */
 export type InstanceList = CommunicationSet & {
     InternalElement: DataItemInstanceList[];
 };
-
-export type SourceList = {
+/**
+ * MTPSUCLib/CommunicationSet/SourceList
+ */
+export type SourceList = CommunicationSet & {
     InternalElement: DataItemSourceList;
 };
 
