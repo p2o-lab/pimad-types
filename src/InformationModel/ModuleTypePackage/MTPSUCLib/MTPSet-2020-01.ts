@@ -16,7 +16,7 @@ export type MTPSet = {};
  * MTPSUCLib/CommunicationSet
  */
 type CommunicationSet = MTPSet & Base & {
-    RefBaseSystemUnitClass: string;
+    RefBaseSystemUnitPath: string;
 };
 /**
  * MTPSUCLib/CommunicationSet/InstanceList
