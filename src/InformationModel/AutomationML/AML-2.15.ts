@@ -21,9 +21,13 @@ declare module 'AML'{
     }
 
     export type Service = BaseAML & {
-        InternalElement: object[];
+        InternalElement: ServiceInternalElement[];
     }
-
+    export type ServiceInternalElement = Base & {
+        Attribute: Attribute,
+        InternalElement: DataItemInstanceList[],
+        RefBaseSystemUnitPath: string
+    }
     // TODO: Generics + ExternalInterface == undefined?
     export type DataItemSourceList = Base & {
         RefBaseSystemUnitPath: string;
