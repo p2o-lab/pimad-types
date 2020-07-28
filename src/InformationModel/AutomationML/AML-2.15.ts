@@ -24,7 +24,7 @@ declare module 'AML'{
         InternalElement: ServiceInternalElement[];
     }
     export type ServiceInternalElement = Base & {
-        Attribute: Attribute,
+        Attribute: Attribute[],
         InternalElement: DataItemInstanceList[],
         RefBaseSystemUnitPath: string
     }
