@@ -1,6 +1,10 @@
 /** MTPFreeze 01.2020 */
 import {DataAssembly, ServerAssembly, ServiceSet, TextSet, HMISet} from '../../..';
-import {Base, DataItemInstanceList, DataItemSourceList} from 'AML';
+// Namespace: AML
+import {AML} from '../../..';
+import Base = AML.Base;
+import DataItemInstanceList = AML.DataItemInstanceList;
+import DataItemSourceList = AML.DataItemSourceList;
 
 export type ModuleTypePackage = {
     CommunicationSet: Array <InstanceList | SourceList>;
