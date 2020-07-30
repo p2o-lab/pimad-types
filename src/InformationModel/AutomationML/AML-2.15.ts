@@ -1,5 +1,5 @@
-declare module 'AML'{
-    type Base = {
+export namespace AML {
+    export type Base = {
         Name: string;
         ID: string;
     }
@@ -50,5 +50,4 @@ declare module 'AML'{
         AttributeDataType: string;
         Value: string;
     }
-
 }
