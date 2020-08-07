@@ -1,5 +1,6 @@
-import {InstanceHierarchy} from 'AML';
-
+// Namespace: AML
+import {AML} from '../../..';
+import InstanceHierarchy = AML.InstanceHierarchy;
 
 export type CAEXFile = {
     FileName: string;

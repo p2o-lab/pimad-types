@@ -1,7 +1,10 @@
-declare module 'AML'{
-    type BaseAML = {
+export namespace AML {
+    export type Base = {
         Name: string;
         ID: string;
+    }
+
+    type BaseAML = Base & {
         Version: string;
     }
 
@@ -18,7 +21,33 @@ declare module 'AML'{
     }
 
     export type Service = BaseAML & {
-        InternalElement: object[];
+        InternalElement: ServiceInternalElement[];
+    }
+    export type ServiceInternalElement = Base & {
+        Attribute: Attribute[],
+        InternalElement: DataItemInstanceList[],
+        RefBaseSystemUnitPath: string
+    }
+    // TODO: Generics + ExternalInterface == undefined?
+    export type DataItemSourceList = Base & {
+        RefBaseSystemUnitPath: string;
+        Attribute: Attribute;
+        ExternalInterface: DataItemSourceListExternalInterface[];
     }
 
+    export type DataItemSourceListExternalInterface = Base & {
+        RefBaseClassPath: string;
+        Attribute: Attribute[];
+    }
+
+    export type DataItemInstanceList = Base & {
+        RefBaseSystemUnitPath: string;
+        Attribute: Attribute[];
+    }
+
+    export type Attribute = {
+        Name: string;
+        AttributeDataType: string;
+        Value: string;
+    }
 }
