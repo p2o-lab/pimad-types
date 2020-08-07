@@ -1,6 +1,6 @@
 {
   "name": "PiMAd-types",
-  "version": "0.0.2",
+  "version": "0.0.3-BE",
   "description": "This Package contains type definitions for PiMAd-core.",
   "main": "src/index.ts",
   "scripts": {
