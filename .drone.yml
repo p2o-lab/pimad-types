@@ -1,0 +1,15 @@
+clone:
+  git:
+    image: plugins/git
+    skip_verify: true
+
+pipeline:
+  lint:
+    image: node:12
+    commands:
+      - npm install
+      - npm run lint
+  build:
+    image: node:12
+    commands:
+      - npm run build
