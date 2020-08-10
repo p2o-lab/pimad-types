@@ -1,9 +1,11 @@
 {
   "name": "PiMAd-types",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "This Package contains type definitions for PiMAd-core.",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
+    "prepublish": "rm -rf dist && tsc",
     "prebuild": "npm run lint",
     "build": "tsc",
     "build-gdocs": "typedoc --out docs src",
@@ -19,7 +21,7 @@
     "url": "svn@dev.plt.et.tu-dresden.de:modulare-automation/PiMAd-types.git"
   },
   "files": [
-    "dist"
+    "dist", "index.js"
   ],
   "keywords": [
     "MTP",
