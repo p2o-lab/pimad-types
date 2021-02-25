@@ -1,6 +1,6 @@
 # PiMAd-types
 
-This Package contains type definitions for PiMAd-core.
+This Package contains type definitions related to ProcessIndustryModularAutomation.
 
 # PUBLISH
 

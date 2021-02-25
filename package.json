@@ -8,22 +8,26 @@
   "repository": "git@github.com:p2o-lab/pimad-types.git",
   "homepage": "https://github.com/p2o-lab/pimad-types",
   "scripts": {
-    "prepublish": "rm -rf dist && tsc",
-    "prebuild": "npm run lint",
     "build": "tsc",
     "build-gdocs": "typedoc --out docs src",
     "lint": "eslint -f pretty src/**/*.ts",
+    "prebuild": "npm run lint",
+    "prepublish": "run-script-os",
+    "prepublish:linux": "rm -rf dist && tsc",
+    "prepublish:win32": "(IF EXIST dist (rd /s /q dist)) && (IF EXIST tsc (rd /s /q tsc))",
     "prestart": "npm run build",
     "test": "nyc mocha -r ts-node/register src/**/*.ts"
   },
   "files": [
-    "dist", "index.js"
+    "dist",
+    "index.js"
   ],
   "keywords": [
     "MTP",
     "Module Type Package",
-    "Parser",
-    "PiMAd"
+    "Modular Automation",
+    "PiMAd",
+    "Process Industry"
   ],
   "authors": [
     "Christoph Jesaja Heidelbach <christoph.jesaja.heidelbach@gmail.com>",
@@ -36,8 +40,8 @@
     "eslint-config-google": "^0.14.0",
     "eslint-formatter-pretty": "^3.0.1",
     "eslint-plugin-tsdoc": "^0.2.4",
+    "run-script-os": "^1.1.1",
     "typedoc": "^0.17.4",
     "typescript": "^3.9.7"
-  },
-  "dependencies": {}
+  }
 }
