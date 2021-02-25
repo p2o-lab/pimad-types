@@ -1,9 +1,12 @@
 {
-  "name": "PiMAd-types",
+  "name": "@p2olab/pimad-types",
+  "description": "This Package contains type definitions related to ProcessIndustryModularAutomation.",
   "version": "1.0.0",
-  "description": "This Package contains type definitions for PiMAd-core.",
+  "license": "ISC",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": "git@github.com:p2o-lab/pimad-types.git",
+  "homepage": "https://github.com/p2o-lab/pimad-types",
   "scripts": {
     "prepublish": "rm -rf dist && tsc",
     "prebuild": "npm run lint",
@@ -26,7 +29,6 @@
     "Christoph Jesaja Heidelbach <christoph.jesaja.heidelbach@gmail.com>",
     "Julius Lorenz <julius.lorenz@tu-dresden.de>"
   ],
-  "license": "ISC",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.29.0",
     "@typescript-eslint/parser": "^2.29.0",
