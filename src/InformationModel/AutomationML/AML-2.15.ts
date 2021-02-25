@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace AML {
     export type Base = {
         Name: string;
@@ -24,9 +25,9 @@ export namespace AML {
         InternalElement: ServiceInternalElement[];
     }
     export type ServiceInternalElement = Base & {
-        Attribute: Attribute[],
-        InternalElement: DataItemInstanceList[],
-        RefBaseSystemUnitPath: string
+        Attribute: Attribute[];
+        InternalElement: DataItemInstanceList[];
+        RefBaseSystemUnitPath: string;
     }
     // TODO: Generics + ExternalInterface == undefined?
     export type DataItemSourceList = Base & {
