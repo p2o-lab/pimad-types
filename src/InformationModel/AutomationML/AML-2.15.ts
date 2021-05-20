@@ -51,6 +51,6 @@ export namespace AML {
         AttributeDataType: string;
         Value: string;
         DefaultValue: string;
-        Description: string
+        Description: string;
     }
 }
