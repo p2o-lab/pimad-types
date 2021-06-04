@@ -50,5 +50,7 @@ export namespace AML {
         Name: string;
         AttributeDataType: string;
         Value: string;
+        DefaultValue: string;
+        Description: string;
     }
 }

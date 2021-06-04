@@ -1,7 +1,7 @@
 {
   "name": "@p2olab/pimad-types",
   "description": "This Package contains type definitions related to ProcessIndustryModularAutomation.",
-  "version": "1.0.0",
+  "version": "1.0.1-alpha1",
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -32,7 +32,8 @@
   ],
   "authors": [
     "Christoph Jesaja Heidelbach <christoph.jesaja.heidelbach@gmail.com>",
-    "Julius Lorenz <julius.lorenz@tu-dresden.de>"
+    "Julius Lorenz <julius.lorenz@tu-dresden.de>",
+    "Tuan Son Dinh <tuansondinh96@gmail.com>"
   ],
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.29.0",
