@@ -3,8 +3,8 @@ import {LinkedObject, DataItem, Access} from '../../..';
 
 /* DataAssembly */
 export type DataAssembly = LinkedObject & {
-    TagName: DataItem<Access.ReadAccess, string>;
-    TagDescription: DataItem<Access.ReadAccess, string>;
+    TagName: string;
+    TagDescription: string;
 };
 
 /* ActiveElement */
