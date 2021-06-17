@@ -5,12 +5,13 @@ export type HMISet = {
     Picture: Picture;
 };
 
-//TODO:Check Datatypes
 export type Picture = {
-    Width: DataItem<Access.ReadAccess, number>;
-    Height: DataItem<Access.ReadAccess, number>;
-    HierarchyLevel: DataItem<Access.ReadAccess, string>;
+    Width: number;
+    Height: number;
+    HierarchyLevel: string;
     TopologyObject: TopologyObject[];
+    VisualObject: VisualObject[];
+    Connection: Connection[]
 };
 
 export type TopologyObject = XYCoordinates & {
