@@ -3,8 +3,8 @@ import {DataItem} from '../../..';
 
 /* DataAssembly */
 export type DataAssembly = {
-    TagName: string;
-    TagDescription: string;
+    TagName: DataItem<string>;
+    TagDescription: DataItem<string>;
 };
 
 /* ActiveElement */
