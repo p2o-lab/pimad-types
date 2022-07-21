@@ -1,7 +1,7 @@
 {
   "name": "@p2olab/pimad-types",
   "description": "This Package contains type definitions related to ProcessIndustryModularAutomation.",
-  "version": "1.0.1-alpha1.0.3",
+  "version": "1.0.1-alpha1.0.4",
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
