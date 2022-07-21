@@ -2,7 +2,7 @@
 import {DataItem} from '../../..';
 
 /* DataAssembly */
-export type DataAssembly = {
+export type DataAssemblyDataItems = {
     TagName: DataItem<string>;
     TagDescription: DataItem<string>;
 };
@@ -10,59 +10,59 @@ export type DataAssembly = {
 /* ActiveElement */
 //#region ActiveElement
 
-export type ActiveElement = DataAssembly & OSLevel & WQC;
+export type ActiveElementDataItems = DataAssemblyDataItems & OSLevelDataItems & WQCDataItems;
 
-type ActiveElementVlvDrvCommon = ActiveElement & OperationMode & SafePos & Interlock & Reset;
+type ActiveElementVlvDrvCommonDataItems = ActiveElementDataItems & OperationModeDataItems & SafePosDataItems & InterlockDataItems & ResetDataItems;
 
-export type AnaVlv = ActiveElementVlvDrvCommon & SourceMode & SafePosEn & SafePosAct & Open & Close & Pos & {
+export type AnaVlvDataItems = ActiveElementVlvDrvCommonDataItems & SourceModeDataItems & SafePosEnDataItems & SafePosActDataItems & OpenDataItems & CloseDataItems & PosDataItems & {
     OpenAct: DataItem<boolean>;
     CloseAct: DataItem<boolean>;
 };
-export type MonAnaVlv = AnaVlv & FeedbackMonitoring & {
+export type MonAnaVlvDataItems = AnaVlvDataItems & FeedbackMonitoringDataItems & {
     PosReachedFbk: DataItem<boolean>;
     PosTolerance: DataItem<number>;
     MonPosTi: DataItem<number>;
     MonPosErr: DataItem<boolean>;
 };
 
-export type BinVlv = ActiveElementVlvDrvCommon & SafePosEn & Open & Close & {
+export type BinVlvDataItems = ActiveElementVlvDrvCommonDataItems & SafePosEnDataItems & OpenDataItems & CloseDataItems & {
     Ctrl: DataItem<boolean>;
 };
-export type MonBinVlv = BinVlv & FeedbackMonitoring;
+export type MonBinVlvDataItems = BinVlvDataItems & FeedbackMonitoringDataItems;
 
-export type BinDrv = ActiveElementVlvDrvCommon & Fwd & Rev & Stop & Trip;
-export type MonBinDrv = BinDrv & FeedbackMonitoring;
+export type BinDrvDataItems = ActiveElementVlvDrvCommonDataItems & FwdDataItems & RevDataItems & StopDataItems & TripDataItems;
+export type MonBinDrvDataItems = BinDrvDataItems & FeedbackMonitoringDataItems;
 
-export type AnaDrv = ActiveElementVlvDrvCommon & SourceMode & Fwd & Rev & Stop & Trip & Rpm  ;
-export type MonAnaDrv = AnaDrv & FeedbackMonitoring & RpmErr & RpmLimitMonitoring;
+export type AnaDrvDataItems = ActiveElementVlvDrvCommonDataItems & SourceModeDataItems & FwdDataItems & RevDataItems & StopDataItems & TripDataItems & RpmDataItems;
+export type MonAnaDrvDataItems = AnaDrvDataItems & FeedbackMonitoringDataItems & RpmErrDataItems & RpmLimitMonitoringDataItems;
 
-export type PIDCtrl = ActiveElement & ServiceSourceMode & OperationMode & MV & PV & SP & {
+export type PIDCtrlDataItems = ActiveElementDataItems & ServiceSourceModeDataItems & OperationModeDataItems & MVDataItems & PVDataItems & SPDataItems & {
     P: DataItem<number>;
     Td: DataItem<number>;
     Ti: DataItem<number>;
 };
-type SafePos = {
+type SafePosDataItems = {
     SafePos: DataItem<boolean>;
 };
-type SafePosEn = {
+type SafePosEnDataItems = {
     SafePosEn: DataItem<boolean>;
 };
-type SafePosAct = {
+type SafePosActDataItems = {
     SafePosAct: DataItem<boolean>;
 };
-type Open = {
+type OpenDataItems = {
     OpenAut: DataItem<boolean>;
     OpenFbk: DataItem<boolean>;
     OpenFbkCalc: DataItem<boolean>;
     OpenOp: DataItem<boolean>;
 }
-type Close = {
+type CloseDataItems = {
     CloseAut: DataItem<boolean>;
     CloseFbk: DataItem<boolean>;
     CloseFbkCalc: DataItem<boolean>;
     CloseOp: DataItem<boolean>;
 };
-type Fwd = {
+type FwdDataItems = {
     FwdAut: DataItem<boolean>;
     FwdCtrl: DataItem<boolean>;
     FwdEn: DataItem<boolean>;
@@ -70,7 +70,7 @@ type Fwd = {
     FwdFbkCalc: DataItem<boolean>;
     FwdOp: DataItem<boolean>;
 };
-type Rev = {
+type RevDataItems = {
     RevAut: DataItem<boolean>;
     RevCtrl: DataItem<boolean>;
     RevEn: DataItem<boolean>;
@@ -78,7 +78,7 @@ type Rev = {
     RevFbkCalc: DataItem<boolean>;
     RevOp: DataItem<boolean>;
 };
-type Pos = {
+type PosDataItems = {
     Pos: DataItem<number>;
     PosFbk: DataItem<number>;
     PosFbkCalc: DataItem<boolean>;
@@ -91,7 +91,7 @@ type Pos = {
     PosMin: DataItem<number>;
     PosMax: DataItem<number>;
 }
-type Rpm = {
+type RpmDataItems = {
     Rpm: DataItem<number>;
     RpmFbk: DataItem<number>;
     RpmFbkCalc: DataItem<boolean>;
@@ -104,67 +104,67 @@ type Rpm = {
     RpmSclMin: DataItem<number>;
     RpmUnit: DataItem<number>;
 };
-type RpmErr = {
+type RpmErrDataItems = {
     RpmErr: DataItem<number>;
 };
-type Stop = {
+type StopDataItems = {
     StopAut: DataItem<boolean>;
     StopOp: DataItem<boolean>;
 };
-type Trip = {
+type TripDataItems = {
     Trip: DataItem<boolean>;
 };
-type MV = MVScaleSettings & MVUnit & MVValueLimitation & {
+type MVDataItems = MVScaleSettingsDataItems & MVUnitDataItems & MVValueLimitationDataItems & {
     MV: DataItem<number>;
     MVMan: DataItem<number>;
 };
 //#region MVSubtypes
-type MVScaleSettings = {
+type MVScaleSettingsDataItems = {
     MVSclMax: DataItem<number>;
     MVSclMin: DataItem<number>;
 };
-type MVValueLimitation = {
+type MVValueLimitationDataItems = {
     MVMax: DataItem<number>;
     MVMin: DataItem<number>;
 };
-type MVUnit = {
+type MVUnitDataItems = {
     MVUnit: DataItem<number>;
 };
 //#endregion
-type PV = PVScaleSettings & PVUnit & {
+type PVDataItems = PVScaleSettingsDataItems & PVUnitDataItems & {
     PV: DataItem<number>;
 };
 //#region PVSubtypes
-type PVScaleSettings = {
+type PVScaleSettingsDataItems = {
     PVSclMax: DataItem<number>;
     PVSclMin: DataItem<number>;
 };
-type PVUnit = {
+type PVUnitDataItems = {
     PVUnit: DataItem<number>;
 };
 //#endregion
-type SP = SPScaleSettings & SPUnit & SPInt & SPMan & {
+type SPDataItems = SPScaleSettingsDataItems & SPUnitDataItems & SPIntDataItems & SPManDataItems & {
     SP: DataItem<number>;
 };
 //#region SPSubtypes
-type SPUnit = {
+type SPUnitDataItems = {
     SPUnit: DataItem<number>;
 };
-type SPScaleSettings = {
+type SPScaleSettingsDataItems = {
     SPSclMax: DataItem<number>;
     SPSclMin: DataItem<number>;
 };
-type SPInt = SPIntValueLimitation & {
+type SPIntDataItems = SPIntValueLimitationDataItems & {
     SPInt: DataItem<number>;
 };
-type SPIntValueLimitation = {
+type SPIntValueLimitationDataItems = {
     SPIntMax: DataItem<number>;
     SPIntMin: DataItem<number>;
 };
-type SPMan = SPManValueLimitation & {
+type SPManDataItems = SPManValueLimitationDataItems & {
     SPMan: DataItem<number>;
 };
-type SPManValueLimitation = {
+type SPManValueLimitationDataItems = {
     SPManMax: DataItem<number>;
     SPManMin: DataItem<number>;
 };
@@ -174,8 +174,8 @@ type SPManValueLimitation = {
 //Done
 /* DiagnosticElement */
 //#region DiagnosticElement
-export type DiagnosticElement = DataAssembly & WQC;
-export type LockView4 = DiagnosticElement & {
+export type DiagnosticElementDataItems = DataAssemblyDataItems & WQCDataItems;
+export type LockView4DataItems = DiagnosticElementDataItems & {
     Logic: DataItem<boolean>;
     In1: DataItem<boolean>;
     In1En: DataItem<boolean>;
@@ -200,7 +200,7 @@ export type LockView4 = DiagnosticElement & {
     Out: DataItem<boolean>;
     OutQC: DataItem<number>;
 };
-export type LockView8 = LockView4 & {
+export type LockView8DataItems = LockView4DataItems & {
     In5: DataItem<boolean>;
     In5En: DataItem<boolean>;
     In5Inv: DataItem<boolean>;
@@ -222,7 +222,7 @@ export type LockView8 = LockView4 & {
     In8QC: DataItem<number>;
     In8Txt: DataItem<string>;
 };
-export type LockView16 = LockView8 & {
+export type LockView16DataItems = LockView8DataItems & {
     In9: DataItem<boolean>;
     In9En: DataItem<boolean>;
     In9Inv: DataItem<boolean>;
@@ -264,64 +264,64 @@ export type LockView16 = LockView8 & {
     In16QC: DataItem<number>;
     In16Txt: DataItem<string>;
 };
-export type HealthStateView = DiagnosticElement;
+export type HealthStateViewDataItems = DiagnosticElementDataItems;
 //#endregion
 
 /* IndicatorElement */
 //#region IndicatorElement
-export type IndicatorElement = DataAssembly & WQC;
+export type IndicatorElementDataItems = DataAssemblyDataItems & WQCDataItems;
 
-export type BinView = IndicatorElement & V<number> & VState;
-export type BinMon = BinView & OSLevel & VFlut;
-type VFlut = {
+export type BinViewDataItems = IndicatorElementDataItems & VDataItemsDataItems<number> & VStateDataItems;
+export type BinMonDataItems = BinViewDataItems & OSLevelDataItems & VFlutDataItems;
+type VFlutDataItems = {
     VFlutEn: DataItem<boolean>;
     VFlutTi: DataItem<number>;
     VFlutCnt: DataItem<number>;
     VFlutAct: DataItem<boolean>;
 };
 
-export type DIntView = IndicatorElement & V<number> & VScaleSetting<number> & VUnit;
-export type DintMon = DIntView & OSLevel & VLimitMonitoring<number>;
+export type DIntViewDataItems = IndicatorElementDataItems & VDataItemsDataItems<number> & VScaleSettingDataItems<number> & VUnitDataItems;
+export type DintMonDataItems = DIntViewDataItems & OSLevelDataItems & VLimitMonitoringDataItems<number>;
 
-export type AnaView = IndicatorElement & V<number> & VScaleSetting<number> & VUnit;
-export type AnaMon = AnaView & OSLevel & VLimitMonitoring<number>;
+export type AnaViewDataItems = IndicatorElementDataItems & VDataItemsDataItems<number> & VScaleSettingDataItems<number> & VUnitDataItems;
+export type AnaMonDataItems = AnaViewDataItems & OSLevelDataItems & VLimitMonitoringDataItems<number>;
 
-export type StringView = IndicatorElement & {
+export type StringViewDataItems = IndicatorElementDataItems & {
     Text: DataItem<string>;
 };
 //#endregion
 
 /* InputElement */
 //#region InputElement
-export type InputElement = DataAssembly & WQC;
-export type BinProcessValueIn = InputElement & VExt<boolean> & VState;
-export type DIntProcessValueIn = InputElement & VExt<number> & VScaleSetting<number>;
-export type AnaProcessValueIn = InputElement & VExt<number> & VScaleSetting<number>;
+export type InputElementDataItems = DataAssemblyDataItems & WQCDataItems;
+export type BinProcessValueInDataItems = InputElementDataItems & VExtDataItems<boolean> & VStateDataItems;
+export type DIntProcessValueInDataItems = InputElementDataItems & VExtDataItems<number> & VScaleSettingDataItems<number>;
+export type AnaProcessValueInDataItems = InputElementDataItems & VExtDataItems<number> & VScaleSettingDataItems<number>;
 //#endregion
 
 /* OperationElement */
 //#region OperationElement
-export type OperationElement = DataAssembly & OSLevel;
+export type OperationElementDataItems = DataAssemblyDataItems & OSLevelDataItems;
 
-export type BinMan = OperationElement & VOut<boolean> & VState & VMan<boolean> & VRbk<boolean> & VFbk<boolean>;
-export type BinManInt = BinMan & SourceMode & VInt<boolean>;
+export type BinManDataItems = OperationElementDataItems & VOutDataItems<boolean> & VStateDataItems & VManDataItems<boolean> & VRbkDataItems<boolean> & VFbkDataItems<boolean>;
+export type BinManIntDataItems = BinManDataItems & SourceModeDataItems & VIntDataItems<boolean>;
 
-export type DIntMan = OperationElement & VOut<number> & VScaleSetting<number> & VUnit & VMan<number> & VValueLimitation<number> & VRbk<number> & VFbk<number>;
-export type DIntManInt = DIntMan & SourceMode & VInt<number>;
+export type DIntManDataItems = OperationElementDataItems & VOutDataItems<number> & VScaleSettingDataItems<number> & VUnitDataItems & VManDataItems<number> & VValueLimitationDataItems<number> & VRbkDataItems<number> & VFbkDataItems<number>;
+export type DIntManIntDataItems = DIntManDataItems & SourceModeDataItems & VIntDataItems<number>;
 
-export type AnaMan = OperationElement & VOut<number> & VScaleSetting<number> & VUnit & VMan<number> & VValueLimitation<number> & VRbk<number> & VFbk<number>;
-export type AnaManInt = AnaMan & SourceMode & VInt<number>;
+export type AnaManDataItems = OperationElementDataItems & VOutDataItems<number> & VScaleSettingDataItems<number> & VUnitDataItems & VManDataItems<number> & VValueLimitationDataItems<number> & VRbkDataItems<number> & VFbkDataItems<number>;
+export type AnaManIntDataItems = AnaManDataItems & SourceModeDataItems & VIntDataItems<number>;
 
-type ServiceOperationMode = OperationMode; //Confused why an extra name is introduced in VDI 2658-4
-type ServiceCommon<T> = OperationElement & ServiceSourceMode & ServiceOperationMode & Sync & WQC & VExt<T> & VOp<T> & VInt<T> & VReq<T> & VOut<T> & VFbk<T>;
+type ServiceOperationModeDataItems = OperationModeDataItems; //Confused why an extra name is introduced in VDI 2658-4
+type ServiceCommonDataItems<T> = OperationElementDataItems & ServiceSourceModeDataItems & ServiceOperationModeDataItems & SyncDataItems & WQCDataItems & VExtDataItems<T> & VOpDataItems<T> & VIntDataItems<T> & VReqDataItems<T> & VOutDataItems<T> & VFbkDataItems<T>;
 
-export type AnaServParam = ServiceCommon<number> & VScaleSetting<number> & VUnit & VValueLimitation<number>;
-export type BinServParam = ServiceCommon<boolean> & VState;
-export type DIntServParam = ServiceCommon<number> & VScaleSetting<number> & VUnit & VValueLimitation<number>;
-export type StringServParam = ServiceCommon<string>;
+export type AnaServParamDataItems = ServiceCommonDataItems<number> & VScaleSettingDataItems<number> & VUnitDataItems & VValueLimitationDataItems<number>;
+export type BinServParamDataItems = ServiceCommonDataItems<boolean> & VStateDataItems;
+export type DIntServParamDataItems = ServiceCommonDataItems<number> & VScaleSettingDataItems<number> & VUnitDataItems & VValueLimitationDataItems<number>;
+export type StringServParamDataItems = ServiceCommonDataItems<string>;
 
 /* ServiceControl */
-export type ServiceControl = DataAssembly & WQC & OSLevel & OperationMode & ServiceSourceMode & {
+export type ServiceControlDataItems = DataAssemblyDataItems & WQCDataItems & OSLevelDataItems & OperationModeDataItems & ServiceSourceModeDataItems & {
     CommandOp: DataItem<number>;
     CommandInt: DataItem<number>;
     CommandExt: DataItem<number>;
@@ -338,7 +338,7 @@ export type ServiceControl = DataAssembly & WQC & OSLevel & OperationMode & Serv
 };
 
 //BasicDataTypes
-type Interlock = {
+type InterlockDataItems = {
     PermEn: DataItem<boolean>;
     Permit: DataItem<boolean>;
     IntlEn: DataItem<boolean>;
@@ -346,7 +346,7 @@ type Interlock = {
     ProtEn: DataItem<boolean>;
     Protect: DataItem<boolean>;
 }
-type FeedbackMonitoring = {
+type FeedbackMonitoringDataItems = {
     MonEn: DataItem<boolean>;
     MonSafePos: DataItem<boolean>;
     MonStatErr: DataItem<boolean>;
@@ -354,152 +354,152 @@ type FeedbackMonitoring = {
     MonStatTi: DataItem<number>;
     MonDynTi: DataItem<number>;
 };
-type OSLevel = {
+type OSLevelDataItems = {
     OSLevel: DataItem<number>;
 };
-type WQC = {
+type WQCDataItems = {
     WQC: DataItem<number>;
 };
-type Reset = {
+type ResetDataItems = {
     ResetOp: DataItem<boolean>;
     ResetAut: DataItem<boolean>;
 }
 
-type Sync={
+type SyncDataItems ={
     Sync: DataItem<boolean>;
 };
 
 //#region SourceModeSubtypes
-type SrcChannel = {
+type SrcChannelDataItems = {
     SrcChannel: DataItem<boolean>;
 };
-type SrcExt = {
+type SrcExtDataItems = {
     SrcExtAct: DataItem<boolean>;
     SrcExtAut: DataItem<boolean>;
     SrcExtOp: DataItem<boolean>;
 };
-type SrcInt = {
+type SrcIntDataItems = {
     SrcIntAct: DataItem<boolean>;
     SrcIntAut: DataItem<boolean>;
     SrcIntOp: DataItem<boolean>;
 };
-type SrcMan = {
+type SrcManDataItems = {
     SrcManAct: DataItem<boolean>;
     SrcManAut: DataItem<boolean>;
     SrcManOp: DataItem<boolean>;
 };
 //#endregion
-type SourceMode = SrcChannel & SrcInt & SrcMan; //type SrcChannelAndIntAndMan = SrcChannel & SrcInt & SrcMan;
-type ServiceSourceMode = SrcChannel & SrcInt & SrcExt; //type SrcChannelAndExtAndInt = SrcChannel & SrcExt & SrcInt;
+type SourceModeDataItems = SrcChannelDataItems & SrcIntDataItems & SrcManDataItems; //type SrcChannelAndIntAndMan = SrcChannel & SrcInt & SrcMan;
+type ServiceSourceModeDataItems = SrcChannelDataItems & SrcIntDataItems & SrcExtDataItems; //type SrcChannelAndExtAndInt = SrcChannel & SrcExt & SrcInt;
 
 //#region StateSubtypes
-type StateChannel = {
+type StateChannelDataItems = {
     StateChannel: DataItem<boolean>;
 };
-type StateAut = {
+type StateAutDataItems = {
     StateAutAct: DataItem<boolean>;
     StateAutAut: DataItem<boolean>;
     StateAutOp: DataItem<boolean>;
 };
-type StateOff = {
+type StateOffDataItems = {
     StateOffAct: DataItem<boolean>;
     StateOffAut: DataItem<boolean>;
     StateOffOp: DataItem<boolean>;
 };
-type StateOp = {
+type StateOpDataItems = {
     StateOpAct: DataItem<boolean>;
     StateOpAut: DataItem<boolean>;
     StateOpOp: DataItem<boolean>;
 };
 //#endregion
-type OperationMode = StateChannel & StateAut & StateOff & StateOp;
+type OperationModeDataItems = StateChannelDataItems & StateAutDataItems & StateOffDataItems & StateOpDataItems;
 
-type V<T> = {
+type VDataItemsDataItems<T> = {
     V: DataItem<T>;
 };
-type VMan<T> = {
+type VManDataItems<T> = {
     VMan: DataItem<T>;
 };
-type VExt<T> = {
+type VExtDataItems<T> = {
     VExt: DataItem<T>;
 };
-type VOp<T> = {
+type VOpDataItems<T> = {
     VOp: DataItem<T>;
 };
-type VInt<T> = {
+type VIntDataItems<T> = {
     VInt: DataItem<T>;
 };
-type VReq<T> = {
+type VReqDataItems<T> = {
     VReq: DataItem<T>;
 };
-type VOut<T> = {
+type VOutDataItems<T> = {
     VOut: DataItem<T>;
 };
-type VFbk<T> = {
+type VFbkDataItems<T> = {
     VFbk: DataItem<T>;
 };
-type VRbk<T> = {
+type VRbkDataItems<T> = {
     VRbk: DataItem<T>;
 };
-type VState = {
+type VStateDataItems = {
     VState0: DataItem<string>;
     VState1: DataItem<string>;
 };
-type VUnit = {
+type VUnitDataItems = {
     VUnit: DataItem<number>;
 };
-type VScaleSetting<T> ={
+type VScaleSettingDataItems<T> ={
     VSclMin: DataItem<T>;
     VSclMax: DataItem<T>;
 };
-type VValueLimitation<T>={
+type VValueLimitationDataItems<T>={
     VMin: DataItem<T>;
     VMax: DataItem<T>;
 };
 
 //#region VLimitMonitoringSubtypes
-type VAH<T> = {
+type VAHDataItems<T> = {
     VAHEn: DataItem<boolean>;
     VAHLim: DataItem<T>;
     VAHAct: DataItem<boolean>;
 };
-type VWH<T> = {
+type VWHDataItems<T> = {
     VWHEn: DataItem<boolean>;
     VWHLim: DataItem<T>;
     VWHAct: DataItem<boolean>;
 };
-type VTH<T> = {
+type VTHDataItems<T> = {
     VTHEn: DataItem<boolean>;
     VTHLim: DataItem<T>;
     VTHAct: DataItem<boolean>;
 };
-type VTL<T> = {
+type VTLDataItems<T> = {
     VTLEn: DataItem<boolean>;
     VTLLim: DataItem<T>;
     VTLAct: DataItem<boolean>;
 };
-type VWL<T> = {
+type VWLDataItems<T> = {
     VWLEn: DataItem<boolean>;
     VWLLim: DataItem<T>;
     VWLAct: DataItem<boolean>;
 };
-type VAL<T> = {
+type VALDataItems<T> = {
     VALEn: DataItem<boolean>;
     VALLim: DataItem<T>;
     VALAct: DataItem<boolean>;
 };
 //#endregion
-type VLimitMonitoring<T>= VAH<T> & VWH<T> & VTH<T> & VTL<T> & VWL<T> & VAL<T>;
+type VLimitMonitoringDataItems<T>= VAHDataItems<T> & VWHDataItems<T> & VTHDataItems<T> & VTLDataItems<T> & VWLDataItems<T> & VALDataItems<T>;
 //#region RpmLimitMonitoringSubtypes
-type RpmAH = {
+type RpmAHDataItems = {
     RpmAHEn: DataItem<boolean>;
     RpmAHLim: DataItem<number>;
     RpmAHAct: DataItem<boolean>;
 };
-type RpmAL = {
+type RpmALDataItems = {
     RpmALEn: DataItem<boolean>;
     RpmALLim: DataItem<number>;
     RpmALAct: DataItem<boolean>;
 };
 //#endregion
-type RpmLimitMonitoring= RpmAH & RpmAL;
+type RpmLimitMonitoringDataItems = RpmAHDataItems & RpmALDataItems;
