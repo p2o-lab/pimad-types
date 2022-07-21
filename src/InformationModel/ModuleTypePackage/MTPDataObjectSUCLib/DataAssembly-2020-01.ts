@@ -1,8 +1,8 @@
 /** MTPFreeze 01.2020 */
-import {LinkedObject, DataItem, Access} from '../../..';
+import {DataItem} from '../../..';
 
 /* DataAssembly */
-export type DataAssembly = LinkedObject & {
+export type DataAssembly = {
     TagName: string;
     TagDescription: string;
 };
@@ -15,18 +15,18 @@ export type ActiveElement = DataAssembly & OSLevel & WQC;
 type ActiveElementVlvDrvCommon = ActiveElement & OperationMode & SafePos & Interlock & Reset;
 
 export type AnaVlv = ActiveElementVlvDrvCommon & SourceMode & SafePosEn & SafePosAct & Open & Close & Pos & {
-    OpenAct: DataItem<Access.ReadAccess, boolean>;
-    CloseAct: DataItem<Access.ReadAccess, boolean>;
+    OpenAct: DataItem<boolean>;
+    CloseAct: DataItem<boolean>;
 };
 export type MonAnaVlv = AnaVlv & FeedbackMonitoring & {
-    PosReachedFbk: DataItem<Access.ReadAccess, boolean>;
-    PosTolerance: DataItem<Access.ReadAccess, number>;
-    MonPosTi: DataItem<Access.ReadAccess, number>;
-    MonPosErr: DataItem<Access.ReadAccess, boolean>;
+    PosReachedFbk: DataItem<boolean>;
+    PosTolerance: DataItem<number>;
+    MonPosTi: DataItem<number>;
+    MonPosErr: DataItem<boolean>;
 };
 
 export type BinVlv = ActiveElementVlvDrvCommon & SafePosEn & Open & Close & {
-    Ctrl: DataItem<Access.ReadAccess, boolean>;
+    Ctrl: DataItem<boolean>;
 };
 export type MonBinVlv = BinVlv & FeedbackMonitoring;
 
@@ -37,136 +37,136 @@ export type AnaDrv = ActiveElementVlvDrvCommon & SourceMode & Fwd & Rev & Stop &
 export type MonAnaDrv = AnaDrv & FeedbackMonitoring & RpmErr & RpmLimitMonitoring;
 
 export type PIDCtrl = ActiveElement & ServiceSourceMode & OperationMode & MV & PV & SP & {
-    P: DataItem<Access.ReadAccess, number>;
-    Td: DataItem<Access.ReadAccess, number>;
-    Ti: DataItem<Access.ReadAccess, number>;
+    P: DataItem<number>;
+    Td: DataItem<number>;
+    Ti: DataItem<number>;
 };
 type SafePos = {
-    SafePos: object;
+    SafePos: DataItem<boolean>;
 };
 type SafePosEn = {
-    SafePosEn: object;
+    SafePosEn: DataItem<boolean>;
 };
 type SafePosAct = {
-    SafePosAct: object;
+    SafePosAct: DataItem<boolean>;
 };
 type Open = {
-    OpenAut: DataItem<Access.ReadAccess, boolean>;
-    OpenFbk: DataItem<Access.ReadAccess, boolean>;
-    OpenFbkCalc: DataItem<Access.ReadAccess, boolean>;
-    OpenOp: DataItem<Access.ReadWriteAccess, boolean>;
+    OpenAut: DataItem<boolean>;
+    OpenFbk: DataItem<boolean>;
+    OpenFbkCalc: DataItem<boolean>;
+    OpenOp: DataItem<boolean>;
 }
 type Close = {
-    CloseAut: DataItem<Access.ReadAccess, boolean>;
-    CloseFbk: DataItem<Access.ReadAccess, boolean>;
-    CloseFbkCalc: DataItem<Access.ReadAccess, boolean>;
-    CloseOp: DataItem<Access.ReadWriteAccess, boolean>;
+    CloseAut: DataItem<boolean>;
+    CloseFbk: DataItem<boolean>;
+    CloseFbkCalc: DataItem<boolean>;
+    CloseOp: DataItem<boolean>;
 };
 type Fwd = {
-    FwdAut: DataItem<Access.ReadAccess, boolean>;
-    FwdCtrl: DataItem<Access.ReadAccess, boolean>;
-    FwdEn: DataItem<Access.ReadAccess, boolean>;
-    FwdFbk: DataItem<Access.ReadAccess, boolean>;
-    FwdFbkCalc: DataItem<Access.ReadAccess, boolean>;
-    FwdOp: DataItem<Access.ReadWriteAccess, boolean>;
+    FwdAut: DataItem<boolean>;
+    FwdCtrl: DataItem<boolean>;
+    FwdEn: DataItem<boolean>;
+    FwdFbk: DataItem<boolean>;
+    FwdFbkCalc: DataItem<boolean>;
+    FwdOp: DataItem<boolean>;
 };
 type Rev = {
-    RevAut: DataItem<Access.ReadAccess, boolean>;
-    RevCtrl: DataItem<Access.ReadAccess, boolean>;
-    RevEn: DataItem<Access.ReadAccess, boolean>;
-    RevFbk: DataItem<Access.ReadAccess, boolean>;
-    RevFbkCalc: DataItem<Access.ReadAccess, boolean>;
-    RevOp: DataItem<Access.ReadWriteAccess, boolean>;
+    RevAut: DataItem<boolean>;
+    RevCtrl: DataItem<boolean>;
+    RevEn: DataItem<boolean>;
+    RevFbk: DataItem<boolean>;
+    RevFbkCalc: DataItem<boolean>;
+    RevOp: DataItem<boolean>;
 };
 type Pos = {
-    Pos: DataItem<Access.ReadAccess, number>;
-    PosFbk: DataItem<Access.ReadAccess, number>;
-    PosFbkCalc: DataItem<Access.ReadAccess, boolean>;
-    PosRbk: DataItem<Access.ReadAccess, number>;
-    PosInt: DataItem<Access.ReadAccess, number>;
-    PosMan: DataItem<Access.ReadWriteAccess, number>;
-    PosUnit: DataItem<Access.ReadAccess, number>;
-    PosSclMin: DataItem<Access.ReadAccess, number>;
-    PosSclMax:  DataItem<Access.ReadAccess, number>;
-    PosMin: DataItem<Access.ReadAccess, number>;
-    PosMax: DataItem<Access.ReadAccess, number>;
+    Pos: DataItem<number>;
+    PosFbk: DataItem<number>;
+    PosFbkCalc: DataItem<boolean>;
+    PosRbk: DataItem<number>;
+    PosInt: DataItem<number>;
+    PosMan: DataItem<number>;
+    PosUnit: DataItem<number>;
+    PosSclMin: DataItem<number>;
+    PosSclMax:  DataItem<number>;
+    PosMin: DataItem<number>;
+    PosMax: DataItem<number>;
 }
 type Rpm = {
-    Rpm: object;
-    RpmFbk: object;
-    RpmFbkCalc: object;
-    RpmInt: object;
-    RpmMan: object;
-    RpmMax: object;
-    RpmMin: object;
-    RpmRbk: object;
-    RpmSclMax: object;
-    RpmSclMin: object;
-    RpmUnit: object;
+    Rpm: DataItem<number>;
+    RpmFbk: DataItem<number>;
+    RpmFbkCalc: DataItem<boolean>;
+    RpmInt: DataItem<number>;
+    RpmMan: DataItem<number>;
+    RpmMax: DataItem<number>;
+    RpmMin: DataItem<number>;
+    RpmRbk: DataItem<number>;
+    RpmSclMax: DataItem<number>;
+    RpmSclMin: DataItem<number>;
+    RpmUnit: DataItem<number>;
 };
 type RpmErr = {
-    RpmErr: object;
+    RpmErr: DataItem<number>;
 };
 type Stop = {
-    StopAut: DataItem<Access.ReadAccess, boolean>;
-    StopOp: DataItem<Access.ReadWriteAccess, boolean>;
+    StopAut: DataItem<boolean>;
+    StopOp: DataItem<boolean>;
 };
 type Trip = {
-    Trip: DataItem<Access.ReadAccess, boolean>;
+    Trip: DataItem<boolean>;
 };
 type MV = MVScaleSettings & MVUnit & MVValueLimitation & {
-    MV: DataItem<Access.ReadAccess, number>;
-    MVMan: DataItem<Access.ReadWriteAccess, number>;
+    MV: DataItem<number>;
+    MVMan: DataItem<number>;
 };
 //#region MVSubtypes
 type MVScaleSettings = {
-    MVSclMax: DataItem<Access.ReadAccess, number>;
-    MVSclMin: DataItem<Access.ReadAccess, number>;
+    MVSclMax: DataItem<number>;
+    MVSclMin: DataItem<number>;
 };
 type MVValueLimitation = {
-    MVMax: DataItem<Access.ReadAccess, number>;
-    MVMin: DataItem<Access.ReadAccess, number>;
+    MVMax: DataItem<number>;
+    MVMin: DataItem<number>;
 };
 type MVUnit = {
-    MVUnit: DataItem<Access.ReadAccess, number>;
+    MVUnit: DataItem<number>;
 };
 //#endregion
 type PV = PVScaleSettings & PVUnit & {
-    PV: DataItem<Access.ReadAccess, number>;
+    PV: DataItem<number>;
 };
 //#region PVSubtypes
 type PVScaleSettings = {
-    PVSclMax: DataItem<Access.ReadAccess, number>;
-    PVSclMin: DataItem<Access.ReadAccess, number>;
+    PVSclMax: DataItem<number>;
+    PVSclMin: DataItem<number>;
 };
 type PVUnit = {
-    PVUnit: DataItem<Access.ReadAccess, number>;
+    PVUnit: DataItem<number>;
 };
 //#endregion
 type SP = SPScaleSettings & SPUnit & SPInt & SPMan & {
-    SP: DataItem<Access.ReadAccess, number>;
+    SP: DataItem<number>;
 };
 //#region SPSubtypes
 type SPUnit = {
-    SPUnit: DataItem<Access.ReadAccess, number>;
+    SPUnit: DataItem<number>;
 };
 type SPScaleSettings = {
-    SPSclMax: DataItem<Access.ReadAccess, number>;
-    SPSclMin: DataItem<Access.ReadAccess, number>;
+    SPSclMax: DataItem<number>;
+    SPSclMin: DataItem<number>;
 };
 type SPInt = SPIntValueLimitation & {
-    SPInt: DataItem<Access.ReadAccess, number>;
+    SPInt: DataItem<number>;
 };
 type SPIntValueLimitation = {
-    SPIntMax: DataItem<Access.ReadAccess, number>;
-    SPIntMin: DataItem<Access.ReadAccess, number>;
+    SPIntMax: DataItem<number>;
+    SPIntMin: DataItem<number>;
 };
 type SPMan = SPManValueLimitation & {
-    SPMan: DataItem<Access.ReadWriteAccess, number>;
+    SPMan: DataItem<number>;
 };
 type SPManValueLimitation = {
-    SPManMax: DataItem<Access.ReadAccess, number>;
-    SPManMin: DataItem<Access.ReadAccess, number>;
+    SPManMax: DataItem<number>;
+    SPManMin: DataItem<number>;
 };
 //#endregion
 //#endregion
@@ -176,93 +176,93 @@ type SPManValueLimitation = {
 //#region DiagnosticElement
 export type DiagnosticElement = DataAssembly & WQC;
 export type LockView4 = DiagnosticElement & {
-    Logic: DataItem<Access.ReadAccess, boolean>;
-    In1: DataItem<Access.ReadAccess, boolean>;
-    In1En: DataItem<Access.ReadAccess, boolean>;
-    In1Inv: DataItem<Access.ReadAccess, boolean>;
-    In1QC: DataItem<Access.ReadAccess, number>;
-    In1Txt: DataItem<Access.ReadAccess, string>;
-    In2: DataItem<Access.ReadAccess, boolean>;
-    In2En: DataItem<Access.ReadAccess, boolean>;
-    In2Inv: DataItem<Access.ReadAccess, boolean>;
-    In2QC: DataItem<Access.ReadAccess, number>;
-    In2Txt: DataItem<Access.ReadAccess, string>;
-    In3: DataItem<Access.ReadAccess, boolean>;
-    In3En: DataItem<Access.ReadAccess, boolean>;
-    In3Inv: DataItem<Access.ReadAccess, boolean>;
-    In3QC: DataItem<Access.ReadAccess, number>;
-    In3Txt: DataItem<Access.ReadAccess, string>;
-    In4: DataItem<Access.ReadAccess, boolean>;
-    In4En: DataItem<Access.ReadAccess, boolean>;
-    In4Inv: DataItem<Access.ReadAccess, boolean>;
-    In4QC: DataItem<Access.ReadAccess, number>;
-    In4Txt: DataItem<Access.ReadAccess, string>;
-    Out: DataItem<Access.ReadAccess, boolean>;
-    OutQC: DataItem<Access.ReadAccess, number>;
+    Logic: DataItem<boolean>;
+    In1: DataItem<boolean>;
+    In1En: DataItem<boolean>;
+    In1Inv: DataItem<boolean>;
+    In1QC: DataItem<number>;
+    In1Txt: DataItem<string>;
+    In2: DataItem<boolean>;
+    In2En: DataItem<boolean>;
+    In2Inv: DataItem<boolean>;
+    In2QC: DataItem<number>;
+    In2Txt: DataItem<string>;
+    In3: DataItem<boolean>;
+    In3En: DataItem<boolean>;
+    In3Inv: DataItem<boolean>;
+    In3QC: DataItem<number>;
+    In3Txt: DataItem<string>;
+    In4: DataItem<boolean>;
+    In4En: DataItem<boolean>;
+    In4Inv: DataItem<boolean>;
+    In4QC: DataItem<number>;
+    In4Txt: DataItem<string>;
+    Out: DataItem<boolean>;
+    OutQC: DataItem<number>;
 };
 export type LockView8 = LockView4 & {
-    In5: DataItem<Access.ReadAccess, boolean>;
-    In5En: DataItem<Access.ReadAccess, boolean>;
-    In5Inv: DataItem<Access.ReadAccess, boolean>;
-    In5QC: DataItem<Access.ReadAccess, number>;
-    In5Txt: DataItem<Access.ReadAccess, string>;
-    In6: DataItem<Access.ReadAccess, boolean>;
-    In6En: DataItem<Access.ReadAccess, boolean>;
-    In6Inv: DataItem<Access.ReadAccess, boolean>;
-    In6QC: DataItem<Access.ReadAccess, number>;
-    In6Txt: DataItem<Access.ReadAccess, string>;
-    In7: DataItem<Access.ReadAccess, boolean>;
-    In7En: DataItem<Access.ReadAccess, boolean>;
-    In7Inv: DataItem<Access.ReadAccess, boolean>;
-    In7QC: DataItem<Access.ReadAccess, number>;
-    In7Txt: DataItem<Access.ReadAccess, string>;
-    In8: DataItem<Access.ReadAccess, boolean>;
-    In8En: DataItem<Access.ReadAccess, boolean>;
-    In8Inv: DataItem<Access.ReadAccess, boolean>;
-    In8QC: DataItem<Access.ReadAccess, number>;
-    In8Txt: DataItem<Access.ReadAccess, string>;
+    In5: DataItem<boolean>;
+    In5En: DataItem<boolean>;
+    In5Inv: DataItem<boolean>;
+    In5QC: DataItem<number>;
+    In5Txt: DataItem<string>;
+    In6: DataItem<boolean>;
+    In6En: DataItem<boolean>;
+    In6Inv: DataItem<boolean>;
+    In6QC: DataItem<number>;
+    In6Txt: DataItem<string>;
+    In7: DataItem<boolean>;
+    In7En: DataItem<boolean>;
+    In7Inv: DataItem<boolean>;
+    In7QC: DataItem<number>;
+    In7Txt: DataItem<string>;
+    In8: DataItem<boolean>;
+    In8En: DataItem<boolean>;
+    In8Inv: DataItem<boolean>;
+    In8QC: DataItem<number>;
+    In8Txt: DataItem<string>;
 };
 export type LockView16 = LockView8 & {
-    In9: DataItem<Access.ReadAccess, boolean>;
-    In9En: DataItem<Access.ReadAccess, boolean>;
-    In9Inv: DataItem<Access.ReadAccess, boolean>;
-    In9QC: DataItem<Access.ReadAccess, number>;
-    In9Txt: DataItem<Access.ReadAccess, string>;
-    In10: DataItem<Access.ReadAccess, boolean>;
-    In10En: DataItem<Access.ReadAccess, boolean>;
-    In10Inv: DataItem<Access.ReadAccess, boolean>;
-    In10QC: DataItem<Access.ReadAccess, number>;
-    In10Txt: DataItem<Access.ReadAccess, string>;
-    In11: DataItem<Access.ReadAccess, boolean>;
-    In11En: DataItem<Access.ReadAccess, boolean>;
-    In11Inv: DataItem<Access.ReadAccess, boolean>;
-    In11QC: DataItem<Access.ReadAccess, number>;
-    In11Txt: DataItem<Access.ReadAccess, string>;
-    In12: DataItem<Access.ReadAccess, boolean>;
-    In12En: DataItem<Access.ReadAccess, boolean>;
-    In12Inv: DataItem<Access.ReadAccess, boolean>;
-    In12QC: DataItem<Access.ReadAccess, number>;
-    In12Txt: DataItem<Access.ReadAccess, string>;
-    In13: DataItem<Access.ReadAccess, boolean>;
-    In13En: DataItem<Access.ReadAccess, boolean>;
-    In13Inv: DataItem<Access.ReadAccess, boolean>;
-    In13QC: DataItem<Access.ReadAccess, number>;
-    In13Txt: DataItem<Access.ReadAccess, string>;
-    In14: DataItem<Access.ReadAccess, boolean>;
-    In14En: DataItem<Access.ReadAccess, boolean>;
-    In14Inv: DataItem<Access.ReadAccess, boolean>;
-    In14QC: DataItem<Access.ReadAccess, number>;
-    In14Txt: DataItem<Access.ReadAccess, string>;
-    In15: DataItem<Access.ReadAccess, boolean>;
-    In15En: DataItem<Access.ReadAccess, boolean>;
-    In15Inv: DataItem<Access.ReadAccess, boolean>;
-    In15QC: DataItem<Access.ReadAccess, number>;
-    In15Txt: DataItem<Access.ReadAccess, string>;
-    In16: DataItem<Access.ReadAccess, boolean>;
-    In16En: DataItem<Access.ReadAccess, boolean>;
-    In16Inv: DataItem<Access.ReadAccess, boolean>;
-    In16QC: DataItem<Access.ReadAccess, number>;
-    In16Txt: DataItem<Access.ReadAccess, string>;
+    In9: DataItem<boolean>;
+    In9En: DataItem<boolean>;
+    In9Inv: DataItem<boolean>;
+    In9QC: DataItem<number>;
+    In9Txt: DataItem<string>;
+    In10: DataItem<boolean>;
+    In10En: DataItem<boolean>;
+    In10Inv: DataItem<boolean>;
+    In10QC: DataItem<number>;
+    In10Txt: DataItem<string>;
+    In11: DataItem<boolean>;
+    In11En: DataItem<boolean>;
+    In11Inv: DataItem<boolean>;
+    In11QC: DataItem<number>;
+    In11Txt: DataItem<string>;
+    In12: DataItem<boolean>;
+    In12En: DataItem<boolean>;
+    In12Inv: DataItem<boolean>;
+    In12QC: DataItem<number>;
+    In12Txt: DataItem<string>;
+    In13: DataItem<boolean>;
+    In13En: DataItem<boolean>;
+    In13Inv: DataItem<boolean>;
+    In13QC: DataItem<number>;
+    In13Txt: DataItem<string>;
+    In14: DataItem<boolean>;
+    In14En: DataItem<boolean>;
+    In14Inv: DataItem<boolean>;
+    In14QC: DataItem<number>;
+    In14Txt: DataItem<string>;
+    In15: DataItem<boolean>;
+    In15En: DataItem<boolean>;
+    In15Inv: DataItem<boolean>;
+    In15QC: DataItem<number>;
+    In15Txt: DataItem<string>;
+    In16: DataItem<boolean>;
+    In16En: DataItem<boolean>;
+    In16Inv: DataItem<boolean>;
+    In16QC: DataItem<number>;
+    In16Txt: DataItem<string>;
 };
 export type HealthStateView = DiagnosticElement;
 //#endregion
@@ -274,10 +274,10 @@ export type IndicatorElement = DataAssembly & WQC;
 export type BinView = IndicatorElement & V<number> & VState;
 export type BinMon = BinView & OSLevel & VFlut;
 type VFlut = {
-    VFlutEn: DataItem<Access.ReadAccess, boolean>;
-    VFlutTi: DataItem<Access.ReadWriteAccess, number>;
-    VFlutCnt: DataItem<Access.ReadWriteAccess, number>;
-    VFlutAct: DataItem<Access.ReadAccess, boolean>;
+    VFlutEn: DataItem<boolean>;
+    VFlutTi: DataItem<number>;
+    VFlutCnt: DataItem<number>;
+    VFlutAct: DataItem<boolean>;
 };
 
 export type DIntView = IndicatorElement & V<number> & VScaleSetting<number> & VUnit;
@@ -287,7 +287,7 @@ export type AnaView = IndicatorElement & V<number> & VScaleSetting<number> & VUn
 export type AnaMon = AnaView & OSLevel & VLimitMonitoring<number>;
 
 export type StringView = IndicatorElement & {
-    Text: DataItem<Access.ReadAccess, string>;
+    Text: DataItem<string>;
 };
 //#endregion
 
@@ -322,71 +322,71 @@ export type StringServParam = ServiceCommon<string>;
 
 /* ServiceControl */
 export type ServiceControl = DataAssembly & WQC & OSLevel & OperationMode & ServiceSourceMode & {
-    CommandOp: DataItem<Access.ReadWriteAccess, number>;
-    CommandInt: DataItem<Access.ReadAccess, number>;
-    CommandExt: DataItem<Access.ReadWriteAccess, number>;
-    CommandEn: DataItem<Access.ReadAccess, number>;
-    ProcedureOp: DataItem<Access.ReadWriteAccess, number>;
-    ProcedureInt: DataItem<Access.ReadAccess, number>;
-    ProcedureExt: DataItem<Access.ReadWriteAccess, number>;
-    ProcedureCur: DataItem<Access.ReadAccess, number>;
-    ProcedureReq: DataItem<Access.ReadAccess, number>;
-    StateCur: DataItem<Access.ReadWriteAccess, number>;
-    InteractQuestionID: DataItem<Access.ReadAccess, number>;
-    InteractAnswerID: DataItem<Access.ReadWriteAccess, number>;
-    PostTextId: DataItem<Access.ReadAccess, number>;
+    CommandOp: DataItem<number>;
+    CommandInt: DataItem<number>;
+    CommandExt: DataItem<number>;
+    CommandEn: DataItem<number>;
+    ProcedureOp: DataItem<number>;
+    ProcedureInt: DataItem<number>;
+    ProcedureExt: DataItem<number>;
+    ProcedureCur: DataItem<number>;
+    ProcedureReq: DataItem<number>;
+    StateCur: DataItem<number>;
+    InteractQuestionID: DataItem<number>;
+    InteractAnswerID: DataItem<number>;
+    PostTextId: DataItem<number>;
 };
 
 //BasicDataTypes
 type Interlock = {
-    PermEn: DataItem<Access.ReadAccess, boolean>;
-    Permit: DataItem<Access.ReadAccess, boolean>;
-    IntlEn: DataItem<Access.ReadAccess, boolean>;
-    Interlock: DataItem<Access.ReadAccess, boolean>;
-    ProtEn: DataItem<Access.ReadAccess, boolean>;
-    Protect: DataItem<Access.ReadAccess, boolean>;
+    PermEn: DataItem<boolean>;
+    Permit: DataItem<boolean>;
+    IntlEn: DataItem<boolean>;
+    Interlock: DataItem<boolean>;
+    ProtEn: DataItem<boolean>;
+    Protect: DataItem<boolean>;
 }
 type FeedbackMonitoring = {
-    MonEn: DataItem<Access.ReadWriteAccess, boolean>;
-    MonSafePos: DataItem<Access.ReadAccess, boolean>;
-    MonStatErr: DataItem<Access.ReadAccess, boolean>;
-    MonDynErr: DataItem<Access.ReadAccess, boolean>;
-    MonStatTi: DataItem<Access.ReadAccess, number>;
-    MonDynTi: DataItem<Access.ReadAccess, number>;
+    MonEn: DataItem<boolean>;
+    MonSafePos: DataItem<boolean>;
+    MonStatErr: DataItem<boolean>;
+    MonDynErr: DataItem<boolean>;
+    MonStatTi: DataItem<number>;
+    MonDynTi: DataItem<number>;
 };
 type OSLevel = {
-    OSLevel: DataItem<Access.ReadWriteAccess, number>;
+    OSLevel: DataItem<number>;
 };
 type WQC = {
-    WQC: DataItem<Access.ReadAccess, number>;
+    WQC: DataItem<number>;
 };
 type Reset = {
-    ResetOp: DataItem<Access.ReadWriteAccess, boolean>;
-    ResetAut: DataItem<Access.ReadAccess, boolean>;
+    ResetOp: DataItem<boolean>;
+    ResetAut: DataItem<boolean>;
 }
 
 type Sync={
-    Sync: DataItem<Access.ReadWriteAccess, boolean>;
+    Sync: DataItem<boolean>;
 };
 
 //#region SourceModeSubtypes
 type SrcChannel = {
-    SrcChannel: DataItem<Access.ReadAccess, boolean>;
+    SrcChannel: DataItem<boolean>;
 };
 type SrcExt = {
-    SrcExtAct: DataItem<Access.ReadAccess, boolean>;
-    SrcExtAut: DataItem<Access.ReadAccess, boolean>;
-    SrcExtOp: DataItem<Access.ReadWriteAccess, boolean>;
+    SrcExtAct: DataItem<boolean>;
+    SrcExtAut: DataItem<boolean>;
+    SrcExtOp: DataItem<boolean>;
 };
 type SrcInt = {
-    SrcIntAct: DataItem<Access.ReadAccess, boolean>;
-    SrcIntAut: DataItem<Access.ReadAccess, boolean>;
-    SrcIntOp: DataItem<Access.ReadWriteAccess, boolean>;
+    SrcIntAct: DataItem<boolean>;
+    SrcIntAut: DataItem<boolean>;
+    SrcIntOp: DataItem<boolean>;
 };
 type SrcMan = {
-    SrcManAct: DataItem<Access.ReadAccess, boolean>;
-    SrcManAut: DataItem<Access.ReadAccess, boolean>;
-    SrcManOp: DataItem<Access.ReadWriteAccess, boolean>;
+    SrcManAct: DataItem<boolean>;
+    SrcManAut: DataItem<boolean>;
+    SrcManOp: DataItem<boolean>;
 };
 //#endregion
 type SourceMode = SrcChannel & SrcInt & SrcMan; //type SrcChannelAndIntAndMan = SrcChannel & SrcInt & SrcMan;
@@ -394,112 +394,112 @@ type ServiceSourceMode = SrcChannel & SrcInt & SrcExt; //type SrcChannelAndExtAn
 
 //#region StateSubtypes
 type StateChannel = {
-    StateChannel: DataItem<Access.ReadAccess, boolean>;
+    StateChannel: DataItem<boolean>;
 };
 type StateAut = {
-    StateAutAct: DataItem<Access.ReadAccess, boolean>;
-    StateAutAut: DataItem<Access.ReadAccess, boolean>;
-    StateAutOp: DataItem<Access.ReadWriteAccess, boolean>;
+    StateAutAct: DataItem<boolean>;
+    StateAutAut: DataItem<boolean>;
+    StateAutOp: DataItem<boolean>;
 };
 type StateOff = {
-    StateOffAct: DataItem<Access.ReadAccess, boolean>;
-    StateOffAut: DataItem<Access.ReadAccess, boolean>;
-    StateOffOp: DataItem<Access.ReadWriteAccess, boolean>;
+    StateOffAct: DataItem<boolean>;
+    StateOffAut: DataItem<boolean>;
+    StateOffOp: DataItem<boolean>;
 };
 type StateOp = {
-    StateOpAct: DataItem<Access.ReadAccess, boolean>;
-    StateOpAut: DataItem<Access.ReadAccess, boolean>;
-    StateOpOp: DataItem<Access.ReadWriteAccess, boolean>;
+    StateOpAct: DataItem<boolean>;
+    StateOpAut: DataItem<boolean>;
+    StateOpOp: DataItem<boolean>;
 };
 //#endregion
 type OperationMode = StateChannel & StateAut & StateOff & StateOp;
 
 type V<T> = {
-    V: DataItem<Access.ReadAccess, T>;
+    V: DataItem<T>;
 };
 type VMan<T> = {
-    VMan: DataItem<Access.ReadWriteAccess, T>;
+    VMan: DataItem<T>;
 };
 type VExt<T> = {
-    VExt: DataItem<Access.ReadWriteAccess, T>;
+    VExt: DataItem<T>;
 };
 type VOp<T> = {
-    VOp: DataItem<Access.ReadWriteAccess, T>;
+    VOp: DataItem<T>;
 };
 type VInt<T> = {
-    VInt: DataItem<Access.ReadAccess, T>;
+    VInt: DataItem<T>;
 };
 type VReq<T> = {
-    VReq: DataItem<Access.ReadAccess, T>;
+    VReq: DataItem<T>;
 };
 type VOut<T> = {
-    VOut: DataItem<Access.ReadAccess, T>;
+    VOut: DataItem<T>;
 };
 type VFbk<T> = {
-    VFbk: DataItem<Access.ReadAccess, T>;
+    VFbk: DataItem<T>;
 };
 type VRbk<T> = {
-    VRbk: DataItem<Access.ReadAccess, T>;
+    VRbk: DataItem<T>;
 };
 type VState = {
-    VState0: DataItem<Access.ReadAccess, string>;
-    VState1: DataItem<Access.ReadAccess, string>;
+    VState0: DataItem<string>;
+    VState1: DataItem<string>;
 };
 type VUnit = {
-    VUnit: DataItem<Access.ReadAccess, number>;
+    VUnit: DataItem<number>;
 };
 type VScaleSetting<T> ={
-    VSclMin: DataItem<Access.ReadAccess, T>;
-    VSclMax: DataItem<Access.ReadAccess, T>;
+    VSclMin: DataItem<T>;
+    VSclMax: DataItem<T>;
 };
 type VValueLimitation<T>={
-    VMin: DataItem<Access.ReadAccess, T>;
-    VMax: DataItem<Access.ReadAccess, T>;
+    VMin: DataItem<T>;
+    VMax: DataItem<T>;
 };
 
 //#region VLimitMonitoringSubtypes
 type VAH<T> = {
-    VAHEn: DataItem<Access.ReadAccess, boolean>;
-    VAHLim: DataItem<Access.ReadWriteAccess, T>;
-    VAHAct: DataItem<Access.ReadAccess, boolean>;
+    VAHEn: DataItem<boolean>;
+    VAHLim: DataItem<T>;
+    VAHAct: DataItem<boolean>;
 };
 type VWH<T> = {
-    VWHEn: DataItem<Access.ReadAccess, boolean>;
-    VWHLim: DataItem<Access.ReadWriteAccess, T>;
-    VWHAct: DataItem<Access.ReadAccess, boolean>;
+    VWHEn: DataItem<boolean>;
+    VWHLim: DataItem<T>;
+    VWHAct: DataItem<boolean>;
 };
 type VTH<T> = {
-    VTHEn: DataItem<Access.ReadAccess, boolean>;
-    VTHLim: DataItem<Access.ReadWriteAccess, T>;
-    VTHAct: DataItem<Access.ReadAccess, boolean>;
+    VTHEn: DataItem<boolean>;
+    VTHLim: DataItem<T>;
+    VTHAct: DataItem<boolean>;
 };
 type VTL<T> = {
-    VTLEn: DataItem<Access.ReadAccess, boolean>;
-    VTLLim: DataItem<Access.ReadWriteAccess, T>;
-    VTLAct: DataItem<Access.ReadAccess, boolean>;
+    VTLEn: DataItem<boolean>;
+    VTLLim: DataItem<T>;
+    VTLAct: DataItem<boolean>;
 };
 type VWL<T> = {
-    VWLEn: DataItem<Access.ReadAccess, boolean>;
-    VWLLim: DataItem<Access.ReadWriteAccess, T>;
-    VWLAct: DataItem<Access.ReadAccess, boolean>;
+    VWLEn: DataItem<boolean>;
+    VWLLim: DataItem<T>;
+    VWLAct: DataItem<boolean>;
 };
 type VAL<T> = {
-    VALEn: DataItem<Access.ReadAccess, boolean>;
-    VALLim: DataItem<Access.ReadWriteAccess, T>;
-    VALAct: DataItem<Access.ReadAccess, boolean>;
+    VALEn: DataItem<boolean>;
+    VALLim: DataItem<T>;
+    VALAct: DataItem<boolean>;
 };
 //#endregion
 type VLimitMonitoring<T>= VAH<T> & VWH<T> & VTH<T> & VTL<T> & VWL<T> & VAL<T>;
 //#region RpmLimitMonitoringSubtypes
 type RpmAH = {
-    RpmAHEn: DataItem<Access.ReadAccess, boolean>;
-    RpmAHLim: DataItem<Access.ReadWriteAccess, number>;
-    RpmAHAct: DataItem<Access.ReadAccess, boolean>;
+    RpmAHEn: DataItem<boolean>;
+    RpmAHLim: DataItem<number>;
+    RpmAHAct: DataItem<boolean>;
 };
 type RpmAL = {
-    RpmALEn: DataItem<Access.ReadAccess, boolean>;
-    RpmALLim: DataItem<Access.ReadWriteAccess, number>;
-    RpmALAct: DataItem<Access.ReadAccess, boolean>;
+    RpmALEn: DataItem<boolean>;
+    RpmALLim: DataItem<number>;
+    RpmALAct: DataItem<boolean>;
 };
 //#endregion
 type RpmLimitMonitoring= RpmAH & RpmAL;

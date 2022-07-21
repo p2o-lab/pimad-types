@@ -1,5 +1,5 @@
 /** MTPFreeze 01.2020 */
-import {LinkedObject, Access, DataItem} from '../../..';
+import {LinkedObject, DataItem} from '../../..';
 
 /* ServiceSet */
 export type ServiceSet = {
@@ -26,9 +26,9 @@ export type Service = LinkedObject & {
 };
 
 export type ServiceProcedure = LinkedObject & {
-    IsSelfCompleting: DataItem<Access.ReadAccess,boolean>;
-    ProcedureId: DataItem<Access.ReadAccess,number>;
-    IsDefault: DataItem<Access.ReadAccess,boolean>;
+    IsSelfCompleting: DataItem<boolean>;
+    ProcedureId: DataItem<number>;
+    IsDefault: DataItem<boolean>;
 };
 
 export type ServiceParameter = LinkedObject & {};

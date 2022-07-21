@@ -1,5 +1,5 @@
 /** MTPFreeze 01.2020 */
-import {Access, DataItem} from '../../..';
+import {DataItem} from '../../..';
 
 export type TextSet = {
     ServiceInteraction: ServiceInteraction[];
@@ -26,5 +26,5 @@ export type EnumDefinition = {
 export type EnumItem = Text & {};
 
 type Text = {
-    Text: DataItem<Access.ReadAccess,string>;
+    Text: DataItem<string>;
 }

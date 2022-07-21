@@ -3,7 +3,7 @@ import {DataItem} from '../../..';
 
 /* ServerAssembly */
 export type ServerAssembly = {
-    DataItem: DataItem<any,any>[];
+    DataItem: DataItem<number | string | boolean>[];
 };
 
 export type OPCUAServer = ServerAssembly & {

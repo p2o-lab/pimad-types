@@ -1,5 +1,5 @@
 /** MTPFreeze 01.2020 */
-import {LinkedObject, Access, DataItem, InformationFlowConnector, MassFlowConnector} from '../../..';
+import {LinkedObject, InformationFlowConnector, MassFlowConnector} from '../../..';
 
 export type HMISet = {
     Picture: Picture;
@@ -9,7 +9,7 @@ export type Picture = Dimension & {
     HierarchyLevel: string;
     TopologyObject: TopologyObject[];
     VisualObject: VisualObject[];
-    Connection: Connection[]
+    Connection: Connection[];
 };
 
 export type TopologyObject = XYCoordinates & {
@@ -19,7 +19,7 @@ export type TopologyObject = XYCoordinates & {
 export type Junction = TopologyObject & {};
 
 export type Termination = {
-    RefID: string
+    RefID: string;
 };
 
 export type Source = Termination;
@@ -28,9 +28,9 @@ export type Sink = Termination;
 export type VisualObject = LinkedObject & Dimension & XYCoordinates & {
     ZIndex: number;
     Rotation: number;
-    eClassVersion: string
-    eClassClassificationClass: string
-    eClassIRDI: string
+    eClassVersion: string;
+    eClassClassificationClass: string;
+    eClassIRDI: string;
     PortObject: Array<LogicalPort | MeasurementPoint | Nozzle>;
 };
 
