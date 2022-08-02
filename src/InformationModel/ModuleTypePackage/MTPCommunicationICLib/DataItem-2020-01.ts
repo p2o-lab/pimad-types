@@ -3,6 +3,7 @@
 export type DataItem<T> = {
     defaultValue: T;
     access: Access; // Blatt 1 - Seite 22
+    value: T;
 }
 
 export type OPCUAItem<T> = DataItem<T> & {

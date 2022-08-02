@@ -12,7 +12,7 @@ export type DataAssemblyDataItems = {
 
 export type ActiveElementDataItems = DataAssemblyDataItems & OSLevelDataItems & WQCDataItems;
 
-type ActiveElementVlvDrvCommonDataItems = ActiveElementDataItems & OperationModeDataItems & SafePosDataItems & InterlockDataItems & ResetDataItems;
+export type ActiveElementVlvDrvCommonDataItems = ActiveElementDataItems & OperationModeDataItems & SafePosDataItems & InterlockDataItems & ResetDataItems;
 
 export type AnaVlvDataItems = ActiveElementVlvDrvCommonDataItems & SourceModeDataItems & SafePosEnDataItems & SafePosActDataItems & OpenDataItems & CloseDataItems & PosDataItems & {
     OpenAct: DataItem<boolean>;
@@ -41,28 +41,28 @@ export type PIDCtrlDataItems = ActiveElementDataItems & ServiceSourceModeDataIte
     Td: DataItem<number>;
     Ti: DataItem<number>;
 };
-type SafePosDataItems = {
+export type SafePosDataItems = {
     SafePos: DataItem<boolean>;
 };
-type SafePosEnDataItems = {
+export type SafePosEnDataItems = {
     SafePosEn: DataItem<boolean>;
 };
-type SafePosActDataItems = {
+export type SafePosActDataItems = {
     SafePosAct: DataItem<boolean>;
 };
-type OpenDataItems = {
+export type OpenDataItems = {
     OpenAut: DataItem<boolean>;
     OpenFbk: DataItem<boolean>;
     OpenFbkCalc: DataItem<boolean>;
     OpenOp: DataItem<boolean>;
 }
-type CloseDataItems = {
+export type CloseDataItems = {
     CloseAut: DataItem<boolean>;
     CloseFbk: DataItem<boolean>;
     CloseFbkCalc: DataItem<boolean>;
     CloseOp: DataItem<boolean>;
 };
-type FwdDataItems = {
+export type FwdDataItems = {
     FwdAut: DataItem<boolean>;
     FwdCtrl: DataItem<boolean>;
     FwdEn: DataItem<boolean>;
@@ -70,7 +70,7 @@ type FwdDataItems = {
     FwdFbkCalc: DataItem<boolean>;
     FwdOp: DataItem<boolean>;
 };
-type RevDataItems = {
+export type RevDataItems = {
     RevAut: DataItem<boolean>;
     RevCtrl: DataItem<boolean>;
     RevEn: DataItem<boolean>;
@@ -78,7 +78,7 @@ type RevDataItems = {
     RevFbkCalc: DataItem<boolean>;
     RevOp: DataItem<boolean>;
 };
-type PosDataItems = {
+export type PosDataItems = {
     Pos: DataItem<number>;
     PosFbk: DataItem<number>;
     PosFbkCalc: DataItem<boolean>;
@@ -91,7 +91,7 @@ type PosDataItems = {
     PosMin: DataItem<number>;
     PosMax: DataItem<number>;
 }
-type RpmDataItems = {
+export type RpmDataItems = {
     Rpm: DataItem<number>;
     RpmFbk: DataItem<number>;
     RpmFbkCalc: DataItem<boolean>;
@@ -104,67 +104,67 @@ type RpmDataItems = {
     RpmSclMin: DataItem<number>;
     RpmUnit: DataItem<number>;
 };
-type RpmErrDataItems = {
+export type RpmErrDataItems = {
     RpmErr: DataItem<number>;
 };
-type StopDataItems = {
+export type StopDataItems = {
     StopAut: DataItem<boolean>;
     StopOp: DataItem<boolean>;
 };
-type TripDataItems = {
+export type TripDataItems = {
     Trip: DataItem<boolean>;
 };
-type MVDataItems = MVScaleSettingsDataItems & MVUnitDataItems & MVValueLimitationDataItems & {
+export type MVDataItems = MVScaleSettingsDataItems & MVUnitDataItems & MVValueLimitationDataItems & {
     MV: DataItem<number>;
     MVMan: DataItem<number>;
 };
 //#region MVSubtypes
-type MVScaleSettingsDataItems = {
+export type MVScaleSettingsDataItems = {
     MVSclMax: DataItem<number>;
     MVSclMin: DataItem<number>;
 };
-type MVValueLimitationDataItems = {
+export type MVValueLimitationDataItems = {
     MVMax: DataItem<number>;
     MVMin: DataItem<number>;
 };
-type MVUnitDataItems = {
+export type MVUnitDataItems = {
     MVUnit: DataItem<number>;
 };
 //#endregion
-type PVDataItems = PVScaleSettingsDataItems & PVUnitDataItems & {
+export type PVDataItems = PVScaleSettingsDataItems & PVUnitDataItems & {
     PV: DataItem<number>;
 };
 //#region PVSubtypes
-type PVScaleSettingsDataItems = {
+export type PVScaleSettingsDataItems = {
     PVSclMax: DataItem<number>;
     PVSclMin: DataItem<number>;
 };
-type PVUnitDataItems = {
+export type PVUnitDataItems = {
     PVUnit: DataItem<number>;
 };
 //#endregion
-type SPDataItems = SPScaleSettingsDataItems & SPUnitDataItems & SPIntDataItems & SPManDataItems & {
+export type SPDataItems = SPScaleSettingsDataItems & SPUnitDataItems & SPIntDataItems & SPManDataItems & {
     SP: DataItem<number>;
 };
 //#region SPSubtypes
-type SPUnitDataItems = {
+export type SPUnitDataItems = {
     SPUnit: DataItem<number>;
 };
-type SPScaleSettingsDataItems = {
+export type SPScaleSettingsDataItems = {
     SPSclMax: DataItem<number>;
     SPSclMin: DataItem<number>;
 };
-type SPIntDataItems = SPIntValueLimitationDataItems & {
+export type SPIntDataItems = SPIntValueLimitationDataItems & {
     SPInt: DataItem<number>;
 };
-type SPIntValueLimitationDataItems = {
+export type SPIntValueLimitationDataItems = {
     SPIntMax: DataItem<number>;
     SPIntMin: DataItem<number>;
 };
-type SPManDataItems = SPManValueLimitationDataItems & {
+export type SPManDataItems = SPManValueLimitationDataItems & {
     SPMan: DataItem<number>;
 };
-type SPManValueLimitationDataItems = {
+export type SPManValueLimitationDataItems = {
     SPManMax: DataItem<number>;
     SPManMin: DataItem<number>;
 };
@@ -273,7 +273,7 @@ export type IndicatorElementDataItems = DataAssemblyDataItems & WQCDataItems;
 
 export type BinViewDataItems = IndicatorElementDataItems & VDataItemsDataItems<number> & VStateDataItems;
 export type BinMonDataItems = BinViewDataItems & OSLevelDataItems & VFlutDataItems;
-type VFlutDataItems = {
+export type VFlutDataItems = {
     VFlutEn: DataItem<boolean>;
     VFlutTi: DataItem<number>;
     VFlutCnt: DataItem<number>;
@@ -312,8 +312,8 @@ export type DIntManIntDataItems = DIntManDataItems & SourceModeDataItems & VIntD
 export type AnaManDataItems = OperationElementDataItems & VOutDataItems<number> & VScaleSettingDataItems<number> & VUnitDataItems & VManDataItems<number> & VValueLimitationDataItems<number> & VRbkDataItems<number> & VFbkDataItems<number>;
 export type AnaManIntDataItems = AnaManDataItems & SourceModeDataItems & VIntDataItems<number>;
 
-type ServiceOperationModeDataItems = OperationModeDataItems; //Confused why an extra name is introduced in VDI 2658-4
-type ServiceCommonDataItems<T> = OperationElementDataItems & ServiceSourceModeDataItems & ServiceOperationModeDataItems & SyncDataItems & WQCDataItems & VExtDataItems<T> & VOpDataItems<T> & VIntDataItems<T> & VReqDataItems<T> & VOutDataItems<T> & VFbkDataItems<T>;
+export type ServiceOperationModeDataItems = OperationModeDataItems; //Confused why an extra name is introduced in VDI 2658-4
+export type ServiceCommonDataItems<T> = OperationElementDataItems & ServiceSourceModeDataItems & ServiceOperationModeDataItems & SyncDataItems & WQCDataItems & VExtDataItems<T> & VOpDataItems<T> & VIntDataItems<T> & VReqDataItems<T> & VOutDataItems<T> & VFbkDataItems<T>;
 
 export type AnaServParamDataItems = ServiceCommonDataItems<number> & VScaleSettingDataItems<number> & VUnitDataItems & VValueLimitationDataItems<number>;
 export type BinServParamDataItems = ServiceCommonDataItems<boolean> & VStateDataItems;
@@ -338,7 +338,7 @@ export type ServiceControlDataItems = DataAssemblyDataItems & WQCDataItems & OSL
 };
 
 //BasicDataTypes
-type InterlockDataItems = {
+export type InterlockDataItems = {
     PermEn: DataItem<boolean>;
     Permit: DataItem<boolean>;
     IntlEn: DataItem<boolean>;
@@ -346,7 +346,7 @@ type InterlockDataItems = {
     ProtEn: DataItem<boolean>;
     Protect: DataItem<boolean>;
 }
-type FeedbackMonitoringDataItems = {
+export type FeedbackMonitoringDataItems = {
     MonEn: DataItem<boolean>;
     MonSafePos: DataItem<boolean>;
     MonStatErr: DataItem<boolean>;
@@ -354,152 +354,152 @@ type FeedbackMonitoringDataItems = {
     MonStatTi: DataItem<number>;
     MonDynTi: DataItem<number>;
 };
-type OSLevelDataItems = {
+export type OSLevelDataItems = {
     OSLevel: DataItem<number>;
 };
-type WQCDataItems = {
+export type WQCDataItems = {
     WQC: DataItem<number>;
 };
-type ResetDataItems = {
+export type ResetDataItems = {
     ResetOp: DataItem<boolean>;
     ResetAut: DataItem<boolean>;
 }
 
-type SyncDataItems ={
+export type SyncDataItems ={
     Sync: DataItem<boolean>;
 };
 
 //#region SourceModeSubtypes
-type SrcChannelDataItems = {
+export type SrcChannelDataItems = {
     SrcChannel: DataItem<boolean>;
 };
-type SrcExtDataItems = {
+export type SrcExtDataItems = {
     SrcExtAct: DataItem<boolean>;
     SrcExtAut: DataItem<boolean>;
     SrcExtOp: DataItem<boolean>;
 };
-type SrcIntDataItems = {
+export type SrcIntDataItems = {
     SrcIntAct: DataItem<boolean>;
     SrcIntAut: DataItem<boolean>;
     SrcIntOp: DataItem<boolean>;
 };
-type SrcManDataItems = {
+export type SrcManDataItems = {
     SrcManAct: DataItem<boolean>;
     SrcManAut: DataItem<boolean>;
     SrcManOp: DataItem<boolean>;
 };
 //#endregion
-type SourceModeDataItems = SrcChannelDataItems & SrcIntDataItems & SrcManDataItems; //type SrcChannelAndIntAndMan = SrcChannel & SrcInt & SrcMan;
-type ServiceSourceModeDataItems = SrcChannelDataItems & SrcIntDataItems & SrcExtDataItems; //type SrcChannelAndExtAndInt = SrcChannel & SrcExt & SrcInt;
+export type SourceModeDataItems = SrcChannelDataItems & SrcIntDataItems & SrcManDataItems; //type SrcChannelAndIntAndMan = SrcChannel & SrcInt & SrcMan;
+export type ServiceSourceModeDataItems = SrcChannelDataItems & SrcIntDataItems & SrcExtDataItems; //type SrcChannelAndExtAndInt = SrcChannel & SrcExt & SrcInt;
 
 //#region StateSubtypes
-type StateChannelDataItems = {
+export type StateChannelDataItems = {
     StateChannel: DataItem<boolean>;
 };
-type StateAutDataItems = {
+export type StateAutDataItems = {
     StateAutAct: DataItem<boolean>;
     StateAutAut: DataItem<boolean>;
     StateAutOp: DataItem<boolean>;
 };
-type StateOffDataItems = {
+export type StateOffDataItems = {
     StateOffAct: DataItem<boolean>;
     StateOffAut: DataItem<boolean>;
     StateOffOp: DataItem<boolean>;
 };
-type StateOpDataItems = {
+export type StateOpDataItems = {
     StateOpAct: DataItem<boolean>;
     StateOpAut: DataItem<boolean>;
     StateOpOp: DataItem<boolean>;
 };
 //#endregion
-type OperationModeDataItems = StateChannelDataItems & StateAutDataItems & StateOffDataItems & StateOpDataItems;
+export type OperationModeDataItems = StateChannelDataItems & StateAutDataItems & StateOffDataItems & StateOpDataItems;
 
-type VDataItemsDataItems<T> = {
+export type VDataItemsDataItems<T> = {
     V: DataItem<T>;
 };
-type VManDataItems<T> = {
+export type VManDataItems<T> = {
     VMan: DataItem<T>;
 };
-type VExtDataItems<T> = {
+export type VExtDataItems<T> = {
     VExt: DataItem<T>;
 };
-type VOpDataItems<T> = {
+export type VOpDataItems<T> = {
     VOp: DataItem<T>;
 };
-type VIntDataItems<T> = {
+export type VIntDataItems<T> = {
     VInt: DataItem<T>;
 };
-type VReqDataItems<T> = {
+export type VReqDataItems<T> = {
     VReq: DataItem<T>;
 };
-type VOutDataItems<T> = {
+export type VOutDataItems<T> = {
     VOut: DataItem<T>;
 };
-type VFbkDataItems<T> = {
+export type VFbkDataItems<T> = {
     VFbk: DataItem<T>;
 };
-type VRbkDataItems<T> = {
+export type VRbkDataItems<T> = {
     VRbk: DataItem<T>;
 };
-type VStateDataItems = {
+export type VStateDataItems = {
     VState0: DataItem<string>;
     VState1: DataItem<string>;
 };
-type VUnitDataItems = {
+export type VUnitDataItems = {
     VUnit: DataItem<number>;
 };
-type VScaleSettingDataItems<T> ={
+export type VScaleSettingDataItems<T> ={
     VSclMin: DataItem<T>;
     VSclMax: DataItem<T>;
 };
-type VValueLimitationDataItems<T>={
+export type VValueLimitationDataItems<T>={
     VMin: DataItem<T>;
     VMax: DataItem<T>;
 };
 
 //#region VLimitMonitoringSubtypes
-type VAHDataItems<T> = {
+export type VAHDataItems<T> = {
     VAHEn: DataItem<boolean>;
     VAHLim: DataItem<T>;
     VAHAct: DataItem<boolean>;
 };
-type VWHDataItems<T> = {
+export type VWHDataItems<T> = {
     VWHEn: DataItem<boolean>;
     VWHLim: DataItem<T>;
     VWHAct: DataItem<boolean>;
 };
-type VTHDataItems<T> = {
+export type VTHDataItems<T> = {
     VTHEn: DataItem<boolean>;
     VTHLim: DataItem<T>;
     VTHAct: DataItem<boolean>;
 };
-type VTLDataItems<T> = {
+export type VTLDataItems<T> = {
     VTLEn: DataItem<boolean>;
     VTLLim: DataItem<T>;
     VTLAct: DataItem<boolean>;
 };
-type VWLDataItems<T> = {
+export type VWLDataItems<T> = {
     VWLEn: DataItem<boolean>;
     VWLLim: DataItem<T>;
     VWLAct: DataItem<boolean>;
 };
-type VALDataItems<T> = {
+export type VALDataItems<T> = {
     VALEn: DataItem<boolean>;
     VALLim: DataItem<T>;
     VALAct: DataItem<boolean>;
 };
 //#endregion
-type VLimitMonitoringDataItems<T>= VAHDataItems<T> & VWHDataItems<T> & VTHDataItems<T> & VTLDataItems<T> & VWLDataItems<T> & VALDataItems<T>;
+export type VLimitMonitoringDataItems<T>= VAHDataItems<T> & VWHDataItems<T> & VTHDataItems<T> & VTLDataItems<T> & VWLDataItems<T> & VALDataItems<T>;
 //#region RpmLimitMonitoringSubtypes
-type RpmAHDataItems = {
+export type RpmAHDataItems = {
     RpmAHEn: DataItem<boolean>;
     RpmAHLim: DataItem<number>;
     RpmAHAct: DataItem<boolean>;
 };
-type RpmALDataItems = {
+export type RpmALDataItems = {
     RpmALEn: DataItem<boolean>;
     RpmALLim: DataItem<number>;
     RpmALAct: DataItem<boolean>;
 };
 //#endregion
-type RpmLimitMonitoringDataItems = RpmAHDataItems & RpmALDataItems;
+export type RpmLimitMonitoringDataItems = RpmAHDataItems & RpmALDataItems;
