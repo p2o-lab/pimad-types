@@ -295,8 +295,8 @@ export type StringViewDataItems = IndicatorElementDataItems & {
 //#region InputElement
 export type InputElementDataItems = DataAssemblyDataItems & WQCDataItems;
 export type BinProcessValueInDataItems = InputElementDataItems & VExtDataItems<boolean> & VStateDataItems;
-export type DIntProcessValueInDataItems = InputElementDataItems & VExtDataItems<number> & VScaleSettingDataItems<number>;
-export type AnaProcessValueInDataItems = InputElementDataItems & VExtDataItems<number> & VScaleSettingDataItems<number>;
+export type DIntProcessValueInDataItems = InputElementDataItems & VExtDataItems<number> & VScaleSettingDataItems<number> & VUnitDataItems;
+export type AnaProcessValueInDataItems = InputElementDataItems & VExtDataItems<number> & VScaleSettingDataItems<number> & VUnitDataItems;
 //#endregion
 
 /* OperationElement */
