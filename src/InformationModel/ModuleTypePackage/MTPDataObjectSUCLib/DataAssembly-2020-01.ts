@@ -12,9 +12,9 @@ export type DataAssemblyDataItems = {
 
 export type ActiveElementDataItems = DataAssemblyDataItems & OSLevelDataItems & WQCDataItems;
 
-export type ActiveElementVlvDrvCommonDataItems = ActiveElementDataItems & OperationModeDataItems & SafePosDataItems & InterlockDataItems & ResetDataItems;
+export type ActiveElementVlvDrvCommonDataItems = ActiveElementDataItems & OperationModeDataItems & SafePosDataItems & SafePosActDataItems & InterlockDataItems & ResetDataItems;
 
-export type AnaVlvDataItems = ActiveElementVlvDrvCommonDataItems & SourceModeDataItems & SafePosEnDataItems & SafePosActDataItems & OpenDataItems & CloseDataItems & PosDataItems & {
+export type AnaVlvDataItems = ActiveElementVlvDrvCommonDataItems & SourceModeDataItems & SafePosEnDataItems & OpenDataItems & CloseDataItems & PosDataItems & {
     OpenAct: DataItem<boolean>;
     CloseAct: DataItem<boolean>;
 };
