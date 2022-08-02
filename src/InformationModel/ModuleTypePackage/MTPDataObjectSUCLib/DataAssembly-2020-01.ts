@@ -304,13 +304,13 @@ export type AnaProcessValueInDataItems = InputElementDataItems & VExtDataItems<n
 export type OperationElementDataItems = DataAssemblyDataItems & OSLevelDataItems;
 
 export type BinManDataItems = OperationElementDataItems & VOutDataItems<boolean> & VStateDataItems & VManDataItems<boolean> & VRbkDataItems<boolean> & VFbkDataItems<boolean>;
-export type BinManIntDataItems = BinManDataItems & SourceModeDataItems & VIntDataItems<boolean>;
+export type BinManIntDataItems = BinManDataItems & SourceModeDataItems & VIntDataItems<boolean> & WQCDataItems;
 
 export type DIntManDataItems = OperationElementDataItems & VOutDataItems<number> & VScaleSettingDataItems<number> & VUnitDataItems & VManDataItems<number> & VValueLimitationDataItems<number> & VRbkDataItems<number> & VFbkDataItems<number>;
-export type DIntManIntDataItems = DIntManDataItems & SourceModeDataItems & VIntDataItems<number>;
+export type DIntManIntDataItems = DIntManDataItems & SourceModeDataItems & VIntDataItems<number> & WQCDataItems;
 
 export type AnaManDataItems = OperationElementDataItems & VOutDataItems<number> & VScaleSettingDataItems<number> & VUnitDataItems & VManDataItems<number> & VValueLimitationDataItems<number> & VRbkDataItems<number> & VFbkDataItems<number>;
-export type AnaManIntDataItems = AnaManDataItems & SourceModeDataItems & VIntDataItems<number>;
+export type AnaManIntDataItems = AnaManDataItems & SourceModeDataItems & VIntDataItems<number> & WQCDataItems;
 
 export type ServiceOperationModeDataItems = OperationModeDataItems; //Confused why an extra name is introduced in VDI 2658-4
 export type ServiceCommonDataItems<T> = OperationElementDataItems & ServiceSourceModeDataItems & ServiceOperationModeDataItems & SyncDataItems & WQCDataItems & VExtDataItems<T> & VOpDataItems<T> & VIntDataItems<T> & VReqDataItems<T> & VOutDataItems<T> & VFbkDataItems<T>;
