@@ -14,7 +14,9 @@ export type ActiveElementDataItems = DataAssemblyDataItems & OSLevelDataItems & 
 
 export type ActiveElementVlvDrvCommonDataItems = ActiveElementDataItems & OperationModeDataItems & SafePosDataItems & SafePosActDataItems & InterlockDataItems & ResetDataItems;
 
-export type AnaVlvDataItems = ActiveElementVlvDrvCommonDataItems & SourceModeDataItems & SafePosEnDataItems & OpenDataItems & CloseDataItems & PosDataItems & {
+export type VlvDataItems = ActiveElementVlvDrvCommonDataItems & SourceModeDataItems & SafePosEnDataItems & OpenDataItems & CloseDataItems
+
+export type AnaVlvDataItems = VlvDataItems & PosDataItems & {
     OpenAct: DataItem<boolean>;
     CloseAct: DataItem<boolean>;
 };
@@ -25,7 +27,7 @@ export type MonAnaVlvDataItems = AnaVlvDataItems & FeedbackMonitoringDataItems &
     MonPosErr: DataItem<boolean>;
 };
 
-export type BinVlvDataItems = ActiveElementVlvDrvCommonDataItems & SafePosEnDataItems & OpenDataItems & CloseDataItems & {
+export type BinVlvDataItems = VlvDataItems & {
     Ctrl: DataItem<boolean>;
 };
 export type MonBinVlvDataItems = BinVlvDataItems & FeedbackMonitoringDataItems;
@@ -36,7 +38,7 @@ export type MonBinDrvDataItems = BinDrvDataItems & FeedbackMonitoringDataItems;
 export type AnaDrvDataItems = ActiveElementVlvDrvCommonDataItems & SourceModeDataItems & FwdDataItems & RevDataItems & StopDataItems & TripDataItems & RpmDataItems;
 export type MonAnaDrvDataItems = AnaDrvDataItems & FeedbackMonitoringDataItems & RpmErrDataItems & RpmLimitMonitoringDataItems;
 
-export type PIDCtrlDataItems = ActiveElementDataItems & ServiceSourceModeDataItems & OperationModeDataItems & MVDataItems & PVDataItems & SPDataItems & {
+export type PIDCtrlDataItems = ActiveElementDataItems & SourceModeDataItems & OperationModeDataItems & MVDataItems & PVDataItems & SPDataItems & {
     P: DataItem<number>;
     Td: DataItem<number>;
     Ti: DataItem<number>;
@@ -313,12 +315,13 @@ export type AnaManDataItems = OperationElementDataItems & VOutDataItems<number> 
 export type AnaManIntDataItems = AnaManDataItems & SourceModeDataItems & VIntDataItems<number> & WQCDataItems;
 
 export type ServiceOperationModeDataItems = OperationModeDataItems; //Confused why an extra name is introduced in VDI 2658-4
-export type ServiceCommonDataItems<T> = OperationElementDataItems & ServiceSourceModeDataItems & ServiceOperationModeDataItems & SyncDataItems & WQCDataItems & VExtDataItems<T> & VOpDataItems<T> & VIntDataItems<T> & VReqDataItems<T> & VOutDataItems<T> & VFbkDataItems<T>;
+export type ServParamDataItems = OperationElementDataItems & ServiceSourceModeDataItems & ServiceOperationModeDataItems & SyncDataItems & WQCDataItems;
+export type ServiceCommonTypedDataItems<T> = VExtDataItems<T> & VOpDataItems<T> & VIntDataItems<T> & VReqDataItems<T> & VOutDataItems<T> & VFbkDataItems<T>;
 
-export type AnaServParamDataItems = ServiceCommonDataItems<number> & VScaleSettingDataItems<number> & VUnitDataItems & VValueLimitationDataItems<number>;
-export type BinServParamDataItems = ServiceCommonDataItems<boolean> & VStateDataItems;
-export type DIntServParamDataItems = ServiceCommonDataItems<number> & VScaleSettingDataItems<number> & VUnitDataItems & VValueLimitationDataItems<number>;
-export type StringServParamDataItems = ServiceCommonDataItems<string>;
+export type AnaServParamDataItems = ServParamDataItems & ServiceCommonTypedDataItems<number> & VScaleSettingDataItems<number> & VUnitDataItems & VValueLimitationDataItems<number>;
+export type BinServParamDataItems = ServParamDataItems & ServiceCommonTypedDataItems<boolean> & VStateDataItems;
+export type DIntServParamDataItems = ServParamDataItems & ServiceCommonTypedDataItems<number> & VScaleSettingDataItems<number> & VUnitDataItems & VValueLimitationDataItems<number>;
+export type StringServParamDataItems = ServParamDataItems & ServiceCommonTypedDataItems<string>;
 
 /* ServiceControl */
 export type ServiceControlDataItems = DataAssemblyDataItems & WQCDataItems & OSLevelDataItems & OperationModeDataItems & ServiceSourceModeDataItems & {
@@ -334,7 +337,7 @@ export type ServiceControlDataItems = DataAssemblyDataItems & WQCDataItems & OSL
     StateCur: DataItem<number>;
     InteractQuestionID: DataItem<number>;
     InteractAnswerID: DataItem<number>;
-    PostTextId: DataItem<number>;
+    PosTextID: DataItem<number>;
 };
 
 //BasicDataTypes
