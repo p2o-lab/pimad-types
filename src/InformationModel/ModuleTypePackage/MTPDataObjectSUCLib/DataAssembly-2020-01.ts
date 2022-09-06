@@ -14,9 +14,9 @@ export type ActiveElementDataItems = DataAssemblyDataItems & OSLevelDataItems & 
 
 export type ActiveElementVlvDrvCommonDataItems = ActiveElementDataItems & OperationModeDataItems & SafePosDataItems & SafePosActDataItems & InterlockDataItems & ResetDataItems;
 
-export type VlvDataItems = ActiveElementVlvDrvCommonDataItems & SourceModeDataItems & SafePosEnDataItems & OpenDataItems & CloseDataItems
+export type VlvDataItems = ActiveElementVlvDrvCommonDataItems & SafePosEnDataItems & OpenDataItems & CloseDataItems
 
-export type AnaVlvDataItems = VlvDataItems & PosDataItems & {
+export type AnaVlvDataItems = VlvDataItems & SourceModeDataItems & PosDataItems & {
     OpenAct: DataItem<boolean>;
     CloseAct: DataItem<boolean>;
 };
@@ -283,7 +283,7 @@ export type VFlutDataItems = {
 };
 
 export type DIntViewDataItems = IndicatorElementDataItems & VDataItemsDataItems<number> & VScaleSettingDataItems<number> & VUnitDataItems;
-export type DintMonDataItems = DIntViewDataItems & OSLevelDataItems & VLimitMonitoringDataItems<number>;
+export type DIntMonDataItems = DIntViewDataItems & OSLevelDataItems & VLimitMonitoringDataItems<number>;
 
 export type AnaViewDataItems = IndicatorElementDataItems & VDataItemsDataItems<number> & VScaleSettingDataItems<number> & VUnitDataItems;
 export type AnaMonDataItems = AnaViewDataItems & OSLevelDataItems & VLimitMonitoringDataItems<number>;
@@ -316,7 +316,7 @@ export type AnaManIntDataItems = AnaManDataItems & SourceModeDataItems & VIntDat
 
 export type ServiceOperationModeDataItems = OperationModeDataItems; //Confused why an extra name is introduced in VDI 2658-4
 export type ServParamDataItems = OperationElementDataItems & ServiceSourceModeDataItems & ServiceOperationModeDataItems & SyncDataItems & WQCDataItems;
-export type ServiceCommonTypedDataItems<T> = VExtDataItems<T> & VOpDataItems<T> & VIntDataItems<T> & VReqDataItems<T> & VOutDataItems<T> & VFbkDataItems<T>;
+export type ServiceCommonTypedDataItems<T extends string | number | boolean> = VExtDataItems<T> & VOpDataItems<T> & VIntDataItems<T> & VReqDataItems<T> & VOutDataItems<T> & VFbkDataItems<T>;
 
 export type AnaServParamDataItems = ServParamDataItems & ServiceCommonTypedDataItems<number> & VScaleSettingDataItems<number> & VUnitDataItems & VValueLimitationDataItems<number>;
 export type BinServParamDataItems = ServParamDataItems & ServiceCommonTypedDataItems<boolean> & VStateDataItems;
